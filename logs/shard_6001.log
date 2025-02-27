@@ -1,0 +1,38 @@
+2025-02-27 14:48:40,428 - root - INFO - Initializing FlatL2 index with IDMap
+2025-02-27 14:48:40,428 - __main__ - INFO - Initialized shard node with config: config/shard_node.yaml
+2025-02-27 14:48:40,428 - __main__ - INFO - Starting shard server on localhost:6001
+ * Serving Flask app 'shard_server'
+ * Debug mode: off
+2025-02-27 14:48:40,435 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://localhost:6001
+2025-02-27 14:48:40,435 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-02-27 14:49:07,240 - __main__ - DEBUG - Received search request with query_vector shape=(1, 512), k=5
+2025-02-27 14:49:07,241 - __main__ - DEBUG - Calling shard.search
+2025-02-27 14:49:07,241 - shard_node - DEBUG - Starting search with query_vectors shape=(1, 512), k=5
+2025-02-27 14:49:07,241 - shard_node - DEBUG - Index has 0 total vectors
+2025-02-27 14:49:07,241 - shard_node - WARNING - Index only has 0 vectors, but k=5
+2025-02-27 14:49:07,241 - shard_node - WARNING - Index is empty, returning empty results
+2025-02-27 14:49:07,241 - __main__ - DEBUG - Search results: distances shape=(1, 0), indices shape=(1, 0)
+2025-02-27 14:49:07,241 - __main__ - DEBUG - Distances: [], Indices: []
+2025-02-27 14:49:07,241 - __main__ - DEBUG - Returning search results: 1 items
+2025-02-27 14:49:07,242 - werkzeug - INFO - 127.0.0.1 - - [27/Feb/2025 14:49:07] "POST /search HTTP/1.1" 200 -
+2025-02-27 14:49:07,802 - __main__ - DEBUG - Received search request with query_vector shape=(1, 512), k=5
+2025-02-27 14:49:07,802 - __main__ - DEBUG - Calling shard.search
+2025-02-27 14:49:07,802 - shard_node - DEBUG - Starting search with query_vectors shape=(1, 512), k=5
+2025-02-27 14:49:07,802 - shard_node - DEBUG - Index has 0 total vectors
+2025-02-27 14:49:07,802 - shard_node - WARNING - Index only has 0 vectors, but k=5
+2025-02-27 14:49:07,802 - shard_node - WARNING - Index is empty, returning empty results
+2025-02-27 14:49:07,802 - __main__ - DEBUG - Search results: distances shape=(1, 0), indices shape=(1, 0)
+2025-02-27 14:49:07,802 - __main__ - DEBUG - Distances: [], Indices: []
+2025-02-27 14:49:07,802 - __main__ - DEBUG - Returning search results: 1 items
+2025-02-27 14:49:07,802 - werkzeug - INFO - 127.0.0.1 - - [27/Feb/2025 14:49:07] "POST /search HTTP/1.1" 200 -
+2025-02-27 14:49:07,886 - __main__ - DEBUG - Received search request with query_vector shape=(1, 512), k=5
+2025-02-27 14:49:07,886 - __main__ - DEBUG - Calling shard.search
+2025-02-27 14:49:07,886 - shard_node - DEBUG - Starting search with query_vectors shape=(1, 512), k=5
+2025-02-27 14:49:07,886 - shard_node - DEBUG - Index has 0 total vectors
+2025-02-27 14:49:07,886 - shard_node - WARNING - Index only has 0 vectors, but k=5
+2025-02-27 14:49:07,886 - shard_node - WARNING - Index is empty, returning empty results
+2025-02-27 14:49:07,886 - __main__ - DEBUG - Search results: distances shape=(1, 0), indices shape=(1, 0)
+2025-02-27 14:49:07,886 - __main__ - DEBUG - Distances: [], Indices: []
+2025-02-27 14:49:07,886 - __main__ - DEBUG - Returning search results: 1 items
+2025-02-27 14:49:07,886 - werkzeug - INFO - 127.0.0.1 - - [27/Feb/2025 14:49:07] "POST /search HTTP/1.1" 200 -

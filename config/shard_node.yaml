@@ -1,0 +1,11 @@
+index_params:
+  M: 16
+  ef_construction: 200
+  ef_search: 100
+  space: cosine
+index_type: HNSW
+monitoring:
+  enable_metrics: true
+  log_level: INFO
+  performance_tracking: true
+storage_path: data/shard_2

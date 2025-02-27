@@ -1,0 +1,19 @@
+nodes:
+  - host: localhost
+    port: 6001
+  - host: localhost
+    port: 6002
+  - host: localhost
+    port: 6003
+
+sharding_strategy: lsh
+replication_factor: 1
+query_timeout: 30  # seconds
+consistency_mode: eventual
+availability_priority: high
+partition_tolerance: true
+
+lsh_config:
+  num_hash_functions: 4
+  num_hash_tables: 3
+  input_dim: 512

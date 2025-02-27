@@ -1,0 +1,36 @@
+services:
+  coordinator:
+    build: .
+    ports:
+      - "6000:6000"
+    volumes:
+      - ./data:/app/data
+      - ./config:/app/config
+    environment:
+      - PYTHONPATH=/app
+    command: python api/coordinator_api.py
+
+  shard1:
+    build: .
+    ports:
+      - "6001:6001"
+    volumes:
+      - ./data:/app/data
+      - ./config:/app/config
+    environment:
+      - PYTHONPATH=/app
+    command: python api/shard_api.py 6001
+
+  shard2:
+    build: .
+    ports:
+      - "6002:6002"
+    volumes:
+      - ./data:/app/data
+      - ./config:/app/config
+    environment:
+      - PYTHONPATH=/app
+    command: python api/shard_api.py 6002
+
+volumes:
+  shard1_data:

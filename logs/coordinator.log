@@ -1,0 +1,182 @@
+2025-02-27 14:48:47,174 - __main__ - INFO - Initialized coordinator with config: config/coordinator.yaml
+2025-02-27 14:48:47,174 - __main__ - INFO - Starting coordinator server on localhost:6000
+ * Serving Flask app 'coordinator_server'
+ * Debug mode: off
+2025-02-27 14:48:47,178 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://localhost:6000
+2025-02-27 14:48:47,178 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-02-27 14:49:07,215 - __main__ - DEBUG - Received search request with query_vector shape=(1, 512), k=5
+2025-02-27 14:49:07,215 - __main__ - DEBUG - Calling coordinator.search
+2025-02-27 14:49:07,215 - coordinator - DEBUG - Starting search with query_vector shape=(1, 512), k=5
+2025-02-27 14:49:07,215 - root - DEBUG - Getting candidate shards for query vector with shape (1, 512)
+2025-02-27 14:49:07,215 - root - DEBUG - num_hash_tables: 3
+2025-02-27 14:49:07,216 - root - DEBUG - Table 0 projected shape: (1, 4), distances shape: (1, 4)
+2025-02-27 14:49:07,216 - root - DEBUG - Table 1 projected shape: (1, 4), distances shape: (1, 4)
+2025-02-27 14:49:07,217 - root - DEBUG - Table 2 projected shape: (1, 4), distances shape: (1, 4)
+2025-02-27 14:49:07,217 - root - DEBUG - shard_distances: [0.8877533898813099, 0.18947580640508122, 5.507961548603589, 4.039611232264318, 9.170445422499148, 9.449743788858205, 17.56641224057302, 4.108000974090155, 4.358109595152573, 15.262357979683085, 12.4203365039707, 23.980339415077758]
+2025-02-27 14:49:07,217 - root - DEBUG - Using num_candidates: 2
+2025-02-27 14:49:07,217 - root - DEBUG - candidate_indices: [1 0]
+2025-02-27 14:49:07,218 - root - DEBUG - candidate_shards: [1, 0]
+2025-02-27 14:49:07,218 - coordinator - DEBUG - Candidate shards: [1, 0]
+2025-02-27 14:49:07,218 - coordinator - DEBUG - Mapping shard_id 1 to node_idx 1 (out of 3 nodes)
+2025-02-27 14:49:07,218 - coordinator - DEBUG - Submitting search to shard 1 at localhost:6002
+2025-02-27 14:49:07,218 - coordinator - DEBUG - Sending search request to http://localhost:6002/search
+2025-02-27 14:49:07,218 - coordinator - DEBUG - Mapping shard_id 0 to node_idx 0 (out of 3 nodes)
+2025-02-27 14:49:07,218 - coordinator - DEBUG - Submitting search to shard 0 at localhost:6001
+2025-02-27 14:49:07,219 - coordinator - DEBUG - Sending search request to http://localhost:6001/search
+2025-02-27 14:49:07,234 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): localhost:6001
+2025-02-27 14:49:07,234 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): localhost:6002
+2025-02-27 14:49:07,242 - urllib3.connectionpool - DEBUG - http://localhost:6002 "POST /search HTTP/1.1" 200 53
+2025-02-27 14:49:07,243 - coordinator - DEBUG - Received response from http://localhost:6002/search: {'distances': [[]], 'indices': [[]], 'status': 'success'}
+2025-02-27 14:49:07,243 - coordinator - WARNING - Empty results from http://localhost:6002/search
+2025-02-27 14:49:07,243 - coordinator - DEBUG - Received search results: distances shape=(0,), indices shape=(0,)
+2025-02-27 14:49:07,243 - coordinator - DEBUG - Skipping empty result
+2025-02-27 14:49:07,244 - urllib3.connectionpool - DEBUG - http://localhost:6001 "POST /search HTTP/1.1" 200 53
+2025-02-27 14:49:07,244 - coordinator - DEBUG - Received response from http://localhost:6001/search: {'distances': [[]], 'indices': [[]], 'status': 'success'}
+2025-02-27 14:49:07,244 - coordinator - WARNING - Empty results from http://localhost:6001/search
+2025-02-27 14:49:07,244 - coordinator - DEBUG - Received search results: distances shape=(0,), indices shape=(0,)
+2025-02-27 14:49:07,244 - coordinator - DEBUG - Skipping empty result
+2025-02-27 14:49:07,244 - coordinator - WARNING - No search results found across all shards
+2025-02-27 14:49:07,245 - __main__ - DEBUG - Search results: distances shape=(0,), indices shape=(0,)
+2025-02-27 14:49:07,245 - __main__ - WARNING - Empty search results
+2025-02-27 14:49:07,245 - werkzeug - INFO - 127.0.0.1 - - [27/Feb/2025 14:49:07] "POST /search HTTP/1.1" 200 -
+2025-02-27 14:49:07,637 - __main__ - DEBUG - Received search request with query_vector shape=(1, 512), k=5
+2025-02-27 14:49:07,637 - __main__ - DEBUG - Calling coordinator.search
+2025-02-27 14:49:07,637 - coordinator - DEBUG - Starting search with query_vector shape=(1, 512), k=5
+2025-02-27 14:49:07,637 - root - DEBUG - Getting candidate shards for query vector with shape (1, 512)
+2025-02-27 14:49:07,637 - root - DEBUG - num_hash_tables: 3
+2025-02-27 14:49:07,637 - root - DEBUG - Table 0 projected shape: (1, 4), distances shape: (1, 4)
+2025-02-27 14:49:07,638 - root - DEBUG - Table 1 projected shape: (1, 4), distances shape: (1, 4)
+2025-02-27 14:49:07,638 - root - DEBUG - Table 2 projected shape: (1, 4), distances shape: (1, 4)
+2025-02-27 14:49:07,638 - root - DEBUG - shard_distances: [5.878611069688693, 2.725444288358837, 2.5826230037043505, 7.537599396534484, 0.2533735143783311, 13.280263644345327, 5.589496167817471, 7.680052186955232, 1.5693338431234114, 2.291966151690363, 2.6143380427050324, 4.747184476104948]
+2025-02-27 14:49:07,638 - root - DEBUG - Using num_candidates: 2
+2025-02-27 14:49:07,638 - root - DEBUG - candidate_indices: [4 8]
+2025-02-27 14:49:07,638 - root - DEBUG - candidate_shards: [1, 2]
+2025-02-27 14:49:07,638 - coordinator - DEBUG - Candidate shards: [1, 2]
+2025-02-27 14:49:07,638 - coordinator - DEBUG - Mapping shard_id 1 to node_idx 1 (out of 3 nodes)
+2025-02-27 14:49:07,638 - coordinator - DEBUG - Submitting search to shard 1 at localhost:6002
+2025-02-27 14:49:07,638 - coordinator - DEBUG - Sending search request to http://localhost:6002/search
+2025-02-27 14:49:07,638 - coordinator - DEBUG - Mapping shard_id 2 to node_idx 2 (out of 3 nodes)
+2025-02-27 14:49:07,638 - coordinator - DEBUG - Submitting search to shard 2 at localhost:6003
+2025-02-27 14:49:07,639 - coordinator - DEBUG - Sending search request to http://localhost:6003/search
+2025-02-27 14:49:07,639 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): localhost:6002
+2025-02-27 14:49:07,640 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): localhost:6003
+2025-02-27 14:49:07,641 - urllib3.connectionpool - DEBUG - http://localhost:6002 "POST /search HTTP/1.1" 200 53
+2025-02-27 14:49:07,641 - coordinator - DEBUG - Received response from http://localhost:6002/search: {'distances': [[]], 'indices': [[]], 'status': 'success'}
+2025-02-27 14:49:07,641 - coordinator - WARNING - Empty results from http://localhost:6002/search
+2025-02-27 14:49:07,641 - coordinator - DEBUG - Received search results: distances shape=(0,), indices shape=(0,)
+2025-02-27 14:49:07,641 - coordinator - DEBUG - Skipping empty result
+2025-02-27 14:49:07,645 - urllib3.connectionpool - DEBUG - http://localhost:6003 "POST /search HTTP/1.1" 200 53
+2025-02-27 14:49:07,645 - coordinator - DEBUG - Received response from http://localhost:6003/search: {'distances': [[]], 'indices': [[]], 'status': 'success'}
+2025-02-27 14:49:07,645 - coordinator - WARNING - Empty results from http://localhost:6003/search
+2025-02-27 14:49:07,645 - coordinator - DEBUG - Received search results: distances shape=(0,), indices shape=(0,)
+2025-02-27 14:49:07,645 - coordinator - DEBUG - Skipping empty result
+2025-02-27 14:49:07,645 - coordinator - WARNING - No search results found across all shards
+2025-02-27 14:49:07,645 - __main__ - DEBUG - Search results: distances shape=(0,), indices shape=(0,)
+2025-02-27 14:49:07,645 - __main__ - WARNING - Empty search results
+2025-02-27 14:49:07,645 - werkzeug - INFO - 127.0.0.1 - - [27/Feb/2025 14:49:07] "POST /search HTTP/1.1" 200 -
+2025-02-27 14:49:07,719 - __main__ - DEBUG - Received search request with query_vector shape=(1, 512), k=5
+2025-02-27 14:49:07,719 - __main__ - DEBUG - Calling coordinator.search
+2025-02-27 14:49:07,719 - coordinator - DEBUG - Starting search with query_vector shape=(1, 512), k=5
+2025-02-27 14:49:07,719 - root - DEBUG - Getting candidate shards for query vector with shape (1, 512)
+2025-02-27 14:49:07,719 - root - DEBUG - num_hash_tables: 3
+2025-02-27 14:49:07,719 - root - DEBUG - Table 0 projected shape: (1, 4), distances shape: (1, 4)
+2025-02-27 14:49:07,719 - root - DEBUG - Table 1 projected shape: (1, 4), distances shape: (1, 4)
+2025-02-27 14:49:07,719 - root - DEBUG - Table 2 projected shape: (1, 4), distances shape: (1, 4)
+2025-02-27 14:49:07,719 - root - DEBUG - shard_distances: [21.263662284816284, 3.2420931211466044, 16.175094215849402, 14.402837461209035, 13.210422364585924, 2.607391115476057, 6.359560010038175, 3.5622701632655143, 6.798245259067805, 5.904988126221189, 3.6489936432135033, 13.272626805643593]
+2025-02-27 14:49:07,719 - root - DEBUG - Using num_candidates: 2
+2025-02-27 14:49:07,720 - root - DEBUG - candidate_indices: [5 1]
+2025-02-27 14:49:07,720 - root - DEBUG - candidate_shards: [2, 1]
+2025-02-27 14:49:07,720 - coordinator - DEBUG - Candidate shards: [2, 1]
+2025-02-27 14:49:07,720 - coordinator - DEBUG - Mapping shard_id 2 to node_idx 2 (out of 3 nodes)
+2025-02-27 14:49:07,720 - coordinator - DEBUG - Submitting search to shard 2 at localhost:6003
+2025-02-27 14:49:07,720 - coordinator - DEBUG - Sending search request to http://localhost:6003/search
+2025-02-27 14:49:07,720 - coordinator - DEBUG - Mapping shard_id 1 to node_idx 1 (out of 3 nodes)
+2025-02-27 14:49:07,720 - coordinator - DEBUG - Submitting search to shard 1 at localhost:6002
+2025-02-27 14:49:07,720 - coordinator - DEBUG - Sending search request to http://localhost:6002/search
+2025-02-27 14:49:07,721 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): localhost:6003
+2025-02-27 14:49:07,721 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): localhost:6002
+2025-02-27 14:49:07,723 - urllib3.connectionpool - DEBUG - http://localhost:6003 "POST /search HTTP/1.1" 200 53
+2025-02-27 14:49:07,723 - urllib3.connectionpool - DEBUG - http://localhost:6002 "POST /search HTTP/1.1" 200 53
+2025-02-27 14:49:07,723 - coordinator - DEBUG - Received response from http://localhost:6003/search: {'distances': [[]], 'indices': [[]], 'status': 'success'}
+2025-02-27 14:49:07,723 - coordinator - WARNING - Empty results from http://localhost:6003/search
+2025-02-27 14:49:07,723 - coordinator - DEBUG - Received response from http://localhost:6002/search: {'distances': [[]], 'indices': [[]], 'status': 'success'}
+2025-02-27 14:49:07,723 - coordinator - DEBUG - Received search results: distances shape=(0,), indices shape=(0,)
+2025-02-27 14:49:07,723 - coordinator - WARNING - Empty results from http://localhost:6002/search
+2025-02-27 14:49:07,723 - coordinator - DEBUG - Skipping empty result
+2025-02-27 14:49:07,723 - coordinator - DEBUG - Received search results: distances shape=(0,), indices shape=(0,)
+2025-02-27 14:49:07,723 - coordinator - DEBUG - Skipping empty result
+2025-02-27 14:49:07,723 - coordinator - WARNING - No search results found across all shards
+2025-02-27 14:49:07,723 - __main__ - DEBUG - Search results: distances shape=(0,), indices shape=(0,)
+2025-02-27 14:49:07,723 - __main__ - WARNING - Empty search results
+2025-02-27 14:49:07,724 - werkzeug - INFO - 127.0.0.1 - - [27/Feb/2025 14:49:07] "POST /search HTTP/1.1" 200 -
+2025-02-27 14:49:07,799 - __main__ - DEBUG - Received search request with query_vector shape=(1, 512), k=5
+2025-02-27 14:49:07,799 - __main__ - DEBUG - Calling coordinator.search
+2025-02-27 14:49:07,799 - coordinator - DEBUG - Starting search with query_vector shape=(1, 512), k=5
+2025-02-27 14:49:07,799 - root - DEBUG - Getting candidate shards for query vector with shape (1, 512)
+2025-02-27 14:49:07,799 - root - DEBUG - num_hash_tables: 3
+2025-02-27 14:49:07,799 - root - DEBUG - Table 0 projected shape: (1, 4), distances shape: (1, 4)
+2025-02-27 14:49:07,799 - root - DEBUG - Table 1 projected shape: (1, 4), distances shape: (1, 4)
+2025-02-27 14:49:07,799 - root - DEBUG - Table 2 projected shape: (1, 4), distances shape: (1, 4)
+2025-02-27 14:49:07,799 - root - DEBUG - shard_distances: [1.4939493227657028, 5.067876283356142, 6.3979450592716685, 3.9829559790405953, 2.720006035371309, 1.8418036236501814, 1.9096971994094951, 13.357957245655987, 5.007274792704154, 11.508129197329644, 13.497071419336057, 3.381317603102691]
+2025-02-27 14:49:07,799 - root - DEBUG - Using num_candidates: 2
+2025-02-27 14:49:07,800 - root - DEBUG - candidate_indices: [0 5]
+2025-02-27 14:49:07,800 - root - DEBUG - candidate_shards: [0, 2]
+2025-02-27 14:49:07,800 - coordinator - DEBUG - Candidate shards: [0, 2]
+2025-02-27 14:49:07,800 - coordinator - DEBUG - Mapping shard_id 0 to node_idx 0 (out of 3 nodes)
+2025-02-27 14:49:07,800 - coordinator - DEBUG - Submitting search to shard 0 at localhost:6001
+2025-02-27 14:49:07,800 - coordinator - DEBUG - Sending search request to http://localhost:6001/search
+2025-02-27 14:49:07,800 - coordinator - DEBUG - Mapping shard_id 2 to node_idx 2 (out of 3 nodes)
+2025-02-27 14:49:07,800 - coordinator - DEBUG - Submitting search to shard 2 at localhost:6003
+2025-02-27 14:49:07,800 - coordinator - DEBUG - Sending search request to http://localhost:6003/search
+2025-02-27 14:49:07,801 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): localhost:6001
+2025-02-27 14:49:07,801 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): localhost:6003
+2025-02-27 14:49:07,803 - urllib3.connectionpool - DEBUG - http://localhost:6001 "POST /search HTTP/1.1" 200 53
+2025-02-27 14:49:07,803 - urllib3.connectionpool - DEBUG - http://localhost:6003 "POST /search HTTP/1.1" 200 53
+2025-02-27 14:49:07,803 - coordinator - DEBUG - Received response from http://localhost:6001/search: {'distances': [[]], 'indices': [[]], 'status': 'success'}
+2025-02-27 14:49:07,803 - coordinator - DEBUG - Received response from http://localhost:6003/search: {'distances': [[]], 'indices': [[]], 'status': 'success'}
+2025-02-27 14:49:07,803 - coordinator - WARNING - Empty results from http://localhost:6001/search
+2025-02-27 14:49:07,803 - coordinator - WARNING - Empty results from http://localhost:6003/search
+2025-02-27 14:49:07,803 - coordinator - DEBUG - Received search results: distances shape=(0,), indices shape=(0,)
+2025-02-27 14:49:07,803 - coordinator - DEBUG - Skipping empty result
+2025-02-27 14:49:07,803 - coordinator - DEBUG - Received search results: distances shape=(0,), indices shape=(0,)
+2025-02-27 14:49:07,803 - coordinator - DEBUG - Skipping empty result
+2025-02-27 14:49:07,803 - coordinator - WARNING - No search results found across all shards
+2025-02-27 14:49:07,803 - __main__ - DEBUG - Search results: distances shape=(0,), indices shape=(0,)
+2025-02-27 14:49:07,803 - __main__ - WARNING - Empty search results
+2025-02-27 14:49:07,803 - werkzeug - INFO - 127.0.0.1 - - [27/Feb/2025 14:49:07] "POST /search HTTP/1.1" 200 -
+2025-02-27 14:49:07,882 - __main__ - DEBUG - Received search request with query_vector shape=(1, 512), k=5
+2025-02-27 14:49:07,882 - __main__ - DEBUG - Calling coordinator.search
+2025-02-27 14:49:07,882 - coordinator - DEBUG - Starting search with query_vector shape=(1, 512), k=5
+2025-02-27 14:49:07,882 - root - DEBUG - Getting candidate shards for query vector with shape (1, 512)
+2025-02-27 14:49:07,882 - root - DEBUG - num_hash_tables: 3
+2025-02-27 14:49:07,883 - root - DEBUG - Table 0 projected shape: (1, 4), distances shape: (1, 4)
+2025-02-27 14:49:07,883 - root - DEBUG - Table 1 projected shape: (1, 4), distances shape: (1, 4)
+2025-02-27 14:49:07,883 - root - DEBUG - Table 2 projected shape: (1, 4), distances shape: (1, 4)
+2025-02-27 14:49:07,883 - root - DEBUG - shard_distances: [1.1163420848436933, 2.0053903043665393, 16.216390183026505, 1.75457282554552, 1.2454396270702497, 3.6228660507447943, 1.6313574070004293, 5.4611335258871785, 7.609227685947914, 7.673042661916801, 13.687467121874011, 0.93438463932049]
+2025-02-27 14:49:07,883 - root - DEBUG - Using num_candidates: 2
+2025-02-27 14:49:07,883 - root - DEBUG - candidate_indices: [11  0]
+2025-02-27 14:49:07,883 - root - DEBUG - candidate_shards: [2, 0]
+2025-02-27 14:49:07,883 - coordinator - DEBUG - Candidate shards: [2, 0]
+2025-02-27 14:49:07,883 - coordinator - DEBUG - Mapping shard_id 2 to node_idx 2 (out of 3 nodes)
+2025-02-27 14:49:07,883 - coordinator - DEBUG - Submitting search to shard 2 at localhost:6003
+2025-02-27 14:49:07,883 - coordinator - DEBUG - Sending search request to http://localhost:6003/search
+2025-02-27 14:49:07,883 - coordinator - DEBUG - Mapping shard_id 0 to node_idx 0 (out of 3 nodes)
+2025-02-27 14:49:07,884 - coordinator - DEBUG - Submitting search to shard 0 at localhost:6001
+2025-02-27 14:49:07,884 - coordinator - DEBUG - Sending search request to http://localhost:6001/search
+2025-02-27 14:49:07,884 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): localhost:6003
+2025-02-27 14:49:07,885 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): localhost:6001
+2025-02-27 14:49:07,886 - urllib3.connectionpool - DEBUG - http://localhost:6003 "POST /search HTTP/1.1" 200 53
+2025-02-27 14:49:07,886 - urllib3.connectionpool - DEBUG - http://localhost:6001 "POST /search HTTP/1.1" 200 53
+2025-02-27 14:49:07,886 - coordinator - DEBUG - Received response from http://localhost:6003/search: {'distances': [[]], 'indices': [[]], 'status': 'success'}
+2025-02-27 14:49:07,886 - coordinator - DEBUG - Received response from http://localhost:6001/search: {'distances': [[]], 'indices': [[]], 'status': 'success'}
+2025-02-27 14:49:07,886 - coordinator - WARNING - Empty results from http://localhost:6003/search
+2025-02-27 14:49:07,887 - coordinator - WARNING - Empty results from http://localhost:6001/search
+2025-02-27 14:49:07,887 - coordinator - DEBUG - Received search results: distances shape=(0,), indices shape=(0,)
+2025-02-27 14:49:07,887 - coordinator - DEBUG - Skipping empty result
+2025-02-27 14:49:07,887 - coordinator - DEBUG - Received search results: distances shape=(0,), indices shape=(0,)
+2025-02-27 14:49:07,887 - coordinator - DEBUG - Skipping empty result
+2025-02-27 14:49:07,887 - coordinator - WARNING - No search results found across all shards
+2025-02-27 14:49:07,887 - __main__ - DEBUG - Search results: distances shape=(0,), indices shape=(0,)
+2025-02-27 14:49:07,887 - __main__ - WARNING - Empty search results
+2025-02-27 14:49:07,887 - werkzeug - INFO - 127.0.0.1 - - [27/Feb/2025 14:49:07] "POST /search HTTP/1.1" 200 -

@@ -1,38 +1,1138 @@
-2025-02-27 14:48:40,428 - root - INFO - Initializing FlatL2 index with IDMap
-2025-02-27 14:48:40,428 - __main__ - INFO - Initialized shard node with config: config/shard_node.yaml
-2025-02-27 14:48:40,428 - __main__ - INFO - Starting shard server on localhost:6001
+2025-03-23 19:39:44,363 - root - INFO - Initializing FlatL2 index with IDMap
+2025-03-23 19:39:44,363 - __main__ - INFO - Initialized shard node with config: config/shard_node.yaml
+2025-03-23 19:39:44,363 - __main__ - INFO - Starting shard server on localhost:6001
  * Serving Flask app 'shard_server'
  * Debug mode: off
-2025-02-27 14:48:40,435 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+2025-03-23 19:39:44,372 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
  * Running on http://localhost:6001
-2025-02-27 14:48:40,435 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
-2025-02-27 14:49:07,240 - __main__ - DEBUG - Received search request with query_vector shape=(1, 512), k=5
-2025-02-27 14:49:07,241 - __main__ - DEBUG - Calling shard.search
-2025-02-27 14:49:07,241 - shard_node - DEBUG - Starting search with query_vectors shape=(1, 512), k=5
-2025-02-27 14:49:07,241 - shard_node - DEBUG - Index has 0 total vectors
-2025-02-27 14:49:07,241 - shard_node - WARNING - Index only has 0 vectors, but k=5
-2025-02-27 14:49:07,241 - shard_node - WARNING - Index is empty, returning empty results
-2025-02-27 14:49:07,241 - __main__ - DEBUG - Search results: distances shape=(1, 0), indices shape=(1, 0)
-2025-02-27 14:49:07,241 - __main__ - DEBUG - Distances: [], Indices: []
-2025-02-27 14:49:07,241 - __main__ - DEBUG - Returning search results: 1 items
-2025-02-27 14:49:07,242 - werkzeug - INFO - 127.0.0.1 - - [27/Feb/2025 14:49:07] "POST /search HTTP/1.1" 200 -
-2025-02-27 14:49:07,802 - __main__ - DEBUG - Received search request with query_vector shape=(1, 512), k=5
-2025-02-27 14:49:07,802 - __main__ - DEBUG - Calling shard.search
-2025-02-27 14:49:07,802 - shard_node - DEBUG - Starting search with query_vectors shape=(1, 512), k=5
-2025-02-27 14:49:07,802 - shard_node - DEBUG - Index has 0 total vectors
-2025-02-27 14:49:07,802 - shard_node - WARNING - Index only has 0 vectors, but k=5
-2025-02-27 14:49:07,802 - shard_node - WARNING - Index is empty, returning empty results
-2025-02-27 14:49:07,802 - __main__ - DEBUG - Search results: distances shape=(1, 0), indices shape=(1, 0)
-2025-02-27 14:49:07,802 - __main__ - DEBUG - Distances: [], Indices: []
-2025-02-27 14:49:07,802 - __main__ - DEBUG - Returning search results: 1 items
-2025-02-27 14:49:07,802 - werkzeug - INFO - 127.0.0.1 - - [27/Feb/2025 14:49:07] "POST /search HTTP/1.1" 200 -
-2025-02-27 14:49:07,886 - __main__ - DEBUG - Received search request with query_vector shape=(1, 512), k=5
-2025-02-27 14:49:07,886 - __main__ - DEBUG - Calling shard.search
-2025-02-27 14:49:07,886 - shard_node - DEBUG - Starting search with query_vectors shape=(1, 512), k=5
-2025-02-27 14:49:07,886 - shard_node - DEBUG - Index has 0 total vectors
-2025-02-27 14:49:07,886 - shard_node - WARNING - Index only has 0 vectors, but k=5
-2025-02-27 14:49:07,886 - shard_node - WARNING - Index is empty, returning empty results
-2025-02-27 14:49:07,886 - __main__ - DEBUG - Search results: distances shape=(1, 0), indices shape=(1, 0)
-2025-02-27 14:49:07,886 - __main__ - DEBUG - Distances: [], Indices: []
-2025-02-27 14:49:07,886 - __main__ - DEBUG - Returning search results: 1 items
-2025-02-27 14:49:07,886 - werkzeug - INFO - 127.0.0.1 - - [27/Feb/2025 14:49:07] "POST /search HTTP/1.1" 200 -
+2025-03-23 19:39:44,372 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-03-23 19:40:39,465 - __main__ - INFO - Received request to add 35 vectors with shape (35, 512)
+2025-03-23 19:40:39,466 - __main__ - DEBUG - IDs provided with shape (35,)
+2025-03-23 19:40:39,467 - __main__ - DEBUG - Sample IDs: [463618  92416 479126 304396 231339]...
+2025-03-23 19:40:39,467 - __main__ - DEBUG - Calling shard.add_vectors
+2025-03-23 19:40:39,467 - shard_node - INFO - Adding vectors: shape=(35, 512), dtype=float32
+2025-03-23 19:40:39,467 - shard_node - INFO - Adding 35 vectors with IDs range: 463618 to 427338
+2025-03-23 19:40:39,467 - shard_node - INFO - Index now contains 35 total vectors
+2025-03-23 19:40:39,467 - shard_node - INFO - Getting shard statistics
+2025-03-23 19:40:39,473 - __main__ - INFO - Shard stats after adding vectors: {'total_vectors': 35, 'dimension': 512, 'index_type': 'FlatL2', 'metric': 'L2', 'memory_usage_mb': 0.07, 'next_id': 0, 'sample_ids': [35326, 377393, 231339, 124798, 32887], 'storage_path': 'data/shard_0', 'timestamp': 1742773239.473838}
+2025-03-23 19:40:39,475 - werkzeug - INFO - 127.0.0.1 - - [23/Mar/2025 19:40:39] "POST /add_vectors HTTP/1.1" 200 -
+2025-03-23 19:40:39,479 - shard_node - INFO - Getting shard statistics
+2025-03-23 19:40:39,480 - werkzeug - INFO - 127.0.0.1 - - [23/Mar/2025 19:40:39] "GET /stats HTTP/1.1" 200 -
+2025-03-23 19:40:39,491 - shard_node - INFO - Getting shard statistics
+2025-03-23 19:40:39,491 - werkzeug - INFO - 127.0.0.1 - - [23/Mar/2025 19:40:39] "GET /stats HTTP/1.1" 200 -
+2025-03-23 19:40:40,613 - __main__ - INFO - Received request to add 46 vectors with shape (46, 512)
+2025-03-23 19:40:40,613 - __main__ - DEBUG - IDs provided with shape (46,)
+2025-03-23 19:40:40,613 - __main__ - DEBUG - Sample IDs: [261888  25096 103723 155571 292082]...
+2025-03-23 19:40:40,613 - __main__ - DEBUG - Calling shard.add_vectors
+2025-03-23 19:40:40,613 - shard_node - INFO - Adding vectors: shape=(46, 512), dtype=float32
+2025-03-23 19:40:40,613 - shard_node - INFO - Adding 46 vectors with IDs range: 261888 to 295713
+2025-03-23 19:40:40,613 - shard_node - INFO - Index now contains 81 total vectors
+2025-03-23 19:40:40,613 - shard_node - INFO - Getting shard statistics
+2025-03-23 19:40:40,614 - __main__ - INFO - Shard stats after adding vectors: {'total_vectors': 81, 'dimension': 512, 'index_type': 'FlatL2', 'metric': 'L2', 'memory_usage_mb': 0.16, 'next_id': 0, 'sample_ids': [214224, 255536, 261888, 35326, 259640], 'storage_path': 'data/shard_0', 'timestamp': 1742773240.614004}
+2025-03-23 19:40:40,614 - werkzeug - INFO - 127.0.0.1 - - [23/Mar/2025 19:40:40] "POST /add_vectors HTTP/1.1" 200 -
+2025-03-23 19:40:40,616 - shard_node - INFO - Getting shard statistics
+2025-03-23 19:40:40,616 - werkzeug - INFO - 127.0.0.1 - - [23/Mar/2025 19:40:40] "GET /stats HTTP/1.1" 200 -
+2025-03-23 19:40:40,625 - shard_node - INFO - Getting shard statistics
+2025-03-23 19:40:40,625 - werkzeug - INFO - 127.0.0.1 - - [23/Mar/2025 19:40:40] "GET /stats HTTP/1.1" 200 -
+2025-03-23 19:40:41,741 - __main__ - INFO - Received request to add 39 vectors with shape (39, 512)
+2025-03-23 19:40:41,741 - __main__ - DEBUG - IDs provided with shape (39,)
+2025-03-23 19:40:41,741 - __main__ - DEBUG - Sample IDs: [328286 313562 432085 565877 545594]...
+2025-03-23 19:40:41,741 - __main__ - DEBUG - Calling shard.add_vectors
+2025-03-23 19:40:41,741 - shard_node - INFO - Adding vectors: shape=(39, 512), dtype=float32
+2025-03-23 19:40:41,741 - shard_node - INFO - Adding 39 vectors with IDs range: 328286 to 85157
+2025-03-23 19:40:41,741 - shard_node - INFO - Index now contains 120 total vectors
+2025-03-23 19:40:41,741 - shard_node - INFO - Getting shard statistics
+2025-03-23 19:40:41,741 - __main__ - INFO - Shard stats after adding vectors: {'total_vectors': 120, 'dimension': 512, 'index_type': 'FlatL2', 'metric': 'L2', 'memory_usage_mb': 0.24, 'next_id': 0, 'sample_ids': [214224, 215259, 255536, 565877, 261888], 'storage_path': 'data/shard_0', 'timestamp': 1742773241.7415419}
+2025-03-23 19:40:41,741 - werkzeug - INFO - 127.0.0.1 - - [23/Mar/2025 19:40:41] "POST /add_vectors HTTP/1.1" 200 -
+2025-03-23 19:40:41,743 - shard_node - INFO - Getting shard statistics
+2025-03-23 19:40:41,743 - werkzeug - INFO - 127.0.0.1 - - [23/Mar/2025 19:40:41] "GET /stats HTTP/1.1" 200 -
+2025-03-23 19:40:41,750 - shard_node - INFO - Getting shard statistics
+2025-03-23 19:40:41,751 - werkzeug - INFO - 127.0.0.1 - - [23/Mar/2025 19:40:41] "GET /stats HTTP/1.1" 200 -
+2025-03-23 19:40:42,878 - __main__ - INFO - Received request to add 33 vectors with shape (33, 512)
+2025-03-23 19:40:42,878 - __main__ - DEBUG - IDs provided with shape (33,)
+2025-03-23 19:40:42,878 - __main__ - DEBUG - Sample IDs: [288391  19432 560312   2006 382696]...
+2025-03-23 19:40:42,878 - __main__ - DEBUG - Calling shard.add_vectors
+2025-03-23 19:40:42,878 - shard_node - INFO - Adding vectors: shape=(33, 512), dtype=float32
+2025-03-23 19:40:42,878 - shard_node - INFO - Adding 33 vectors with IDs range: 288391 to 348216
+2025-03-23 19:40:42,878 - shard_node - INFO - Index now contains 153 total vectors
+2025-03-23 19:40:42,878 - shard_node - INFO - Getting shard statistics
+2025-03-23 19:40:42,878 - __main__ - INFO - Shard stats after adding vectors: {'total_vectors': 153, 'dimension': 512, 'index_type': 'FlatL2', 'metric': 'L2', 'memory_usage_mb': 0.3, 'next_id': 0, 'sample_ids': [214224, 215259, 255536, 560312, 565877], 'storage_path': 'data/shard_0', 'timestamp': 1742773242.878571}
+2025-03-23 19:40:42,878 - werkzeug - INFO - 127.0.0.1 - - [23/Mar/2025 19:40:42] "POST /add_vectors HTTP/1.1" 200 -
+2025-03-23 19:40:42,881 - shard_node - INFO - Getting shard statistics
+2025-03-23 19:40:42,881 - werkzeug - INFO - 127.0.0.1 - - [23/Mar/2025 19:40:42] "GET /stats HTTP/1.1" 200 -
+2025-03-23 19:40:42,888 - shard_node - INFO - Getting shard statistics
+2025-03-23 19:40:42,889 - werkzeug - INFO - 127.0.0.1 - - [23/Mar/2025 19:40:42] "GET /stats HTTP/1.1" 200 -
+2025-03-23 19:40:44,019 - __main__ - INFO - Received request to add 29 vectors with shape (29, 512)
+2025-03-23 19:40:44,019 - __main__ - DEBUG - IDs provided with shape (29,)
+2025-03-23 19:40:44,020 - __main__ - DEBUG - Sample IDs: [174231 541055 296224 338901 375430]...
+2025-03-23 19:40:44,020 - __main__ - DEBUG - Calling shard.add_vectors
+2025-03-23 19:40:44,020 - shard_node - INFO - Adding vectors: shape=(29, 512), dtype=float32
+2025-03-23 19:40:44,020 - shard_node - INFO - Adding 29 vectors with IDs range: 174231 to 305317
+2025-03-23 19:40:44,020 - shard_node - INFO - Index now contains 182 total vectors
+2025-03-23 19:40:44,020 - shard_node - INFO - Getting shard statistics
+2025-03-23 19:40:44,020 - __main__ - INFO - Shard stats after adding vectors: {'total_vectors': 182, 'dimension': 512, 'index_type': 'FlatL2', 'metric': 'L2', 'memory_usage_mb': 0.36, 'next_id': 0, 'sample_ids': [214224, 215259, 255536, 560312, 565877], 'storage_path': 'data/shard_0', 'timestamp': 1742773244.0203662}
+2025-03-23 19:40:44,020 - werkzeug - INFO - 127.0.0.1 - - [23/Mar/2025 19:40:44] "POST /add_vectors HTTP/1.1" 200 -
+2025-03-23 19:40:44,024 - shard_node - INFO - Getting shard statistics
+2025-03-23 19:40:44,024 - werkzeug - INFO - 127.0.0.1 - - [23/Mar/2025 19:40:44] "GET /stats HTTP/1.1" 200 -
+2025-03-23 19:40:44,031 - shard_node - INFO - Getting shard statistics
+2025-03-23 19:40:44,031 - werkzeug - INFO - 127.0.0.1 - - [23/Mar/2025 19:40:44] "GET /stats HTTP/1.1" 200 -
+2025-03-23 19:40:45,131 - __main__ - INFO - Received request to add 33 vectors with shape (33, 512)
+2025-03-23 19:40:45,131 - __main__ - DEBUG - IDs provided with shape (33,)
+2025-03-23 19:40:45,131 - __main__ - DEBUG - Sample IDs: [320632 516871 128598 272148 436551]...
+2025-03-23 19:40:45,131 - __main__ - DEBUG - Calling shard.add_vectors
+2025-03-23 19:40:45,131 - shard_node - INFO - Adding vectors: shape=(33, 512), dtype=float32
+2025-03-23 19:40:45,131 - shard_node - INFO - Adding 33 vectors with IDs range: 320632 to 320554
+2025-03-23 19:40:45,132 - shard_node - INFO - Index now contains 215 total vectors
+2025-03-23 19:40:45,132 - shard_node - INFO - Getting shard statistics
+2025-03-23 19:40:45,132 - __main__ - INFO - Shard stats after adding vectors: {'total_vectors': 215, 'dimension': 512, 'index_type': 'FlatL2', 'metric': 'L2', 'memory_usage_mb': 0.42, 'next_id': 0, 'sample_ids': [214224, 76547, 215259, 255536, 560312], 'storage_path': 'data/shard_0', 'timestamp': 1742773245.132134}
+2025-03-23 19:40:45,132 - werkzeug - INFO - 127.0.0.1 - - [23/Mar/2025 19:40:45] "POST /add_vectors HTTP/1.1" 200 -
+2025-03-23 19:40:45,134 - shard_node - INFO - Getting shard statistics
+2025-03-23 19:40:45,135 - werkzeug - INFO - 127.0.0.1 - - [23/Mar/2025 19:40:45] "GET /stats HTTP/1.1" 200 -
+2025-03-23 19:40:45,142 - shard_node - INFO - Getting shard statistics
+2025-03-23 19:40:45,142 - werkzeug - INFO - 127.0.0.1 - - [23/Mar/2025 19:40:45] "GET /stats HTTP/1.1" 200 -
+2025-03-23 19:40:46,253 - __main__ - INFO - Received request to add 29 vectors with shape (29, 512)
+2025-03-23 19:40:46,253 - __main__ - DEBUG - IDs provided with shape (29,)
+2025-03-23 19:40:46,254 - __main__ - DEBUG - Sample IDs: [320232 461009 341828 341196  12576]...
+2025-03-23 19:40:46,254 - __main__ - DEBUG - Calling shard.add_vectors
+2025-03-23 19:40:46,254 - shard_node - INFO - Adding vectors: shape=(29, 512), dtype=float32
+2025-03-23 19:40:46,254 - shard_node - INFO - Adding 29 vectors with IDs range: 320232 to 509014
+2025-03-23 19:40:46,254 - shard_node - INFO - Index now contains 244 total vectors
+2025-03-23 19:40:46,254 - shard_node - INFO - Getting shard statistics
+2025-03-23 19:40:46,254 - __main__ - INFO - Shard stats after adding vectors: {'total_vectors': 244, 'dimension': 512, 'index_type': 'FlatL2', 'metric': 'L2', 'memory_usage_mb': 0.48, 'next_id': 0, 'sample_ids': [357737, 214224, 76547, 215259, 294350], 'storage_path': 'data/shard_0', 'timestamp': 1742773246.254271}
+2025-03-23 19:40:46,254 - werkzeug - INFO - 127.0.0.1 - - [23/Mar/2025 19:40:46] "POST /add_vectors HTTP/1.1" 200 -
+2025-03-23 19:40:46,258 - shard_node - INFO - Getting shard statistics
+2025-03-23 19:40:46,258 - werkzeug - INFO - 127.0.0.1 - - [23/Mar/2025 19:40:46] "GET /stats HTTP/1.1" 200 -
+2025-03-23 19:40:46,265 - shard_node - INFO - Getting shard statistics
+2025-03-23 19:40:46,265 - werkzeug - INFO - 127.0.0.1 - - [23/Mar/2025 19:40:46] "GET /stats HTTP/1.1" 200 -
+2025-03-23 19:40:47,394 - __main__ - INFO - Received request to add 38 vectors with shape (38, 512)
+2025-03-23 19:40:47,394 - __main__ - DEBUG - IDs provided with shape (38,)
+2025-03-23 19:40:47,394 - __main__ - DEBUG - Sample IDs: [541291 562448 279541 211825   3255]...
+2025-03-23 19:40:47,394 - __main__ - DEBUG - Calling shard.add_vectors
+2025-03-23 19:40:47,394 - shard_node - INFO - Adding vectors: shape=(38, 512), dtype=float32
+2025-03-23 19:40:47,394 - shard_node - INFO - Adding 38 vectors with IDs range: 541291 to 201148
+2025-03-23 19:40:47,394 - shard_node - INFO - Index now contains 282 total vectors
+2025-03-23 19:40:47,394 - shard_node - INFO - Getting shard statistics
+2025-03-23 19:40:47,394 - __main__ - INFO - Shard stats after adding vectors: {'total_vectors': 282, 'dimension': 512, 'index_type': 'FlatL2', 'metric': 'L2', 'memory_usage_mb': 0.55, 'next_id': 0, 'sample_ids': [357737, 214224, 76547, 215259, 294350], 'storage_path': 'data/shard_0', 'timestamp': 1742773247.3945239}
+2025-03-23 19:40:47,394 - werkzeug - INFO - 127.0.0.1 - - [23/Mar/2025 19:40:47] "POST /add_vectors HTTP/1.1" 200 -
+2025-03-23 19:40:47,396 - shard_node - INFO - Getting shard statistics
+2025-03-23 19:40:47,397 - werkzeug - INFO - 127.0.0.1 - - [23/Mar/2025 19:40:47] "GET /stats HTTP/1.1" 200 -
+2025-03-23 19:40:47,404 - shard_node - INFO - Getting shard statistics
+2025-03-23 19:40:47,404 - werkzeug - INFO - 127.0.0.1 - - [23/Mar/2025 19:40:47] "GET /stats HTTP/1.1" 200 -
+2025-03-23 19:40:48,529 - __main__ - INFO - Received request to add 43 vectors with shape (43, 512)
+2025-03-23 19:40:48,530 - __main__ - DEBUG - IDs provided with shape (43,)
+2025-03-23 19:40:48,530 - __main__ - DEBUG - Sample IDs: [488251  74209  54654 573008 263068]...
+2025-03-23 19:40:48,530 - __main__ - DEBUG - Calling shard.add_vectors
+2025-03-23 19:40:48,530 - shard_node - INFO - Adding vectors: shape=(43, 512), dtype=float32
+2025-03-23 19:40:48,530 - shard_node - INFO - Adding 43 vectors with IDs range: 488251 to 321887
+2025-03-23 19:40:48,530 - shard_node - INFO - Index now contains 325 total vectors
+2025-03-23 19:40:48,530 - shard_node - INFO - Getting shard statistics
+2025-03-23 19:40:48,530 - __main__ - INFO - Shard stats after adding vectors: {'total_vectors': 325, 'dimension': 512, 'index_type': 'FlatL2', 'metric': 'L2', 'memory_usage_mb': 0.64, 'next_id': 0, 'sample_ids': [357737, 214224, 76547, 215259, 294350], 'storage_path': 'data/shard_0', 'timestamp': 1742773248.530453}
+2025-03-23 19:40:48,530 - werkzeug - INFO - 127.0.0.1 - - [23/Mar/2025 19:40:48] "POST /add_vectors HTTP/1.1" 200 -
+2025-03-23 19:40:48,532 - shard_node - INFO - Getting shard statistics
+2025-03-23 19:40:48,532 - werkzeug - INFO - 127.0.0.1 - - [23/Mar/2025 19:40:48] "GET /stats HTTP/1.1" 200 -
+2025-03-23 19:40:48,539 - shard_node - INFO - Getting shard statistics
+2025-03-23 19:40:48,540 - werkzeug - INFO - 127.0.0.1 - - [23/Mar/2025 19:40:48] "GET /stats HTTP/1.1" 200 -
+2025-03-23 19:40:49,633 - __main__ - INFO - Received request to add 33 vectors with shape (33, 512)
+2025-03-23 19:40:49,634 - __main__ - DEBUG - IDs provided with shape (33,)
+2025-03-23 19:40:49,634 - __main__ - DEBUG - Sample IDs: [311950 183246  39914 461036 372577]...
+2025-03-23 19:40:49,634 - __main__ - DEBUG - Calling shard.add_vectors
+2025-03-23 19:40:49,634 - shard_node - INFO - Adding vectors: shape=(33, 512), dtype=float32
+2025-03-23 19:40:49,634 - shard_node - INFO - Adding 33 vectors with IDs range: 311950 to 526751
+2025-03-23 19:40:49,634 - shard_node - INFO - Index now contains 358 total vectors
+2025-03-23 19:40:49,634 - shard_node - INFO - Getting shard statistics
+2025-03-23 19:40:49,634 - __main__ - INFO - Shard stats after adding vectors: {'total_vectors': 358, 'dimension': 512, 'index_type': 'FlatL2', 'metric': 'L2', 'memory_usage_mb': 0.7, 'next_id': 0, 'sample_ids': [357737, 214224, 76547, 215259, 294350], 'storage_path': 'data/shard_0', 'timestamp': 1742773249.634454}
+2025-03-23 19:40:49,634 - werkzeug - INFO - 127.0.0.1 - - [23/Mar/2025 19:40:49] "POST /add_vectors HTTP/1.1" 200 -
+2025-03-23 19:40:49,637 - shard_node - INFO - Getting shard statistics
+2025-03-23 19:40:49,637 - werkzeug - INFO - 127.0.0.1 - - [23/Mar/2025 19:40:49] "GET /stats HTTP/1.1" 200 -
+2025-03-23 19:40:49,644 - shard_node - INFO - Getting shard statistics
+2025-03-23 19:40:49,644 - werkzeug - INFO - 127.0.0.1 - - [23/Mar/2025 19:40:49] "GET /stats HTTP/1.1" 200 -
+2025-03-23 19:40:50,761 - __main__ - INFO - Received request to add 34 vectors with shape (34, 512)
+2025-03-23 19:40:50,761 - __main__ - DEBUG - IDs provided with shape (34,)
+2025-03-23 19:40:50,761 - __main__ - DEBUG - Sample IDs: [ 47819 459634 369751 445792  88265]...
+2025-03-23 19:40:50,761 - __main__ - DEBUG - Calling shard.add_vectors
+2025-03-23 19:40:50,761 - shard_node - INFO - Adding vectors: shape=(34, 512), dtype=float32
+2025-03-23 19:40:50,761 - shard_node - INFO - Adding 34 vectors with IDs range: 47819 to 231088
+2025-03-23 19:40:50,761 - shard_node - INFO - Index now contains 392 total vectors
+2025-03-23 19:40:50,761 - shard_node - INFO - Getting shard statistics
+2025-03-23 19:40:50,762 - __main__ - INFO - Shard stats after adding vectors: {'total_vectors': 392, 'dimension': 512, 'index_type': 'FlatL2', 'metric': 'L2', 'memory_usage_mb': 0.77, 'next_id': 0, 'sample_ids': [357737, 214224, 76547, 215259, 294350], 'storage_path': 'data/shard_0', 'timestamp': 1742773250.762008}
+2025-03-23 19:40:50,762 - werkzeug - INFO - 127.0.0.1 - - [23/Mar/2025 19:40:50] "POST /add_vectors HTTP/1.1" 200 -
+2025-03-23 19:40:50,764 - shard_node - INFO - Getting shard statistics
+2025-03-23 19:40:50,764 - werkzeug - INFO - 127.0.0.1 - - [23/Mar/2025 19:40:50] "GET /stats HTTP/1.1" 200 -
+2025-03-23 19:40:50,772 - shard_node - INFO - Getting shard statistics
+2025-03-23 19:40:50,772 - werkzeug - INFO - 127.0.0.1 - - [23/Mar/2025 19:40:50] "GET /stats HTTP/1.1" 200 -
+2025-03-23 19:40:51,899 - __main__ - INFO - Received request to add 34 vectors with shape (34, 512)
+2025-03-23 19:40:51,899 - __main__ - DEBUG - IDs provided with shape (34,)
+2025-03-23 19:40:51,899 - __main__ - DEBUG - Sample IDs: [ 84674 278463 580197 163951  98261]...
+2025-03-23 19:40:51,899 - __main__ - DEBUG - Calling shard.add_vectors
+2025-03-23 19:40:51,899 - shard_node - INFO - Adding vectors: shape=(34, 512), dtype=float32
+2025-03-23 19:40:51,899 - shard_node - INFO - Adding 34 vectors with IDs range: 84674 to 442836
+2025-03-23 19:40:51,899 - shard_node - INFO - Index now contains 426 total vectors
+2025-03-23 19:40:51,899 - shard_node - INFO - Getting shard statistics
+2025-03-23 19:40:51,900 - __main__ - INFO - Shard stats after adding vectors: {'total_vectors': 426, 'dimension': 512, 'index_type': 'FlatL2', 'metric': 'L2', 'memory_usage_mb': 0.84, 'next_id': 0, 'sample_ids': [357737, 543043, 214224, 76547, 215259], 'storage_path': 'data/shard_0', 'timestamp': 1742773251.900087}
+2025-03-23 19:40:51,900 - werkzeug - INFO - 127.0.0.1 - - [23/Mar/2025 19:40:51] "POST /add_vectors HTTP/1.1" 200 -
+2025-03-23 19:40:51,903 - shard_node - INFO - Getting shard statistics
+2025-03-23 19:40:51,903 - werkzeug - INFO - 127.0.0.1 - - [23/Mar/2025 19:40:51] "GET /stats HTTP/1.1" 200 -
+2025-03-23 19:40:51,910 - shard_node - INFO - Getting shard statistics
+2025-03-23 19:40:51,911 - werkzeug - INFO - 127.0.0.1 - - [23/Mar/2025 19:40:51] "GET /stats HTTP/1.1" 200 -
+2025-03-23 19:40:53,007 - __main__ - INFO - Received request to add 32 vectors with shape (32, 512)
+2025-03-23 19:40:53,007 - __main__ - DEBUG - IDs provided with shape (32,)
+2025-03-23 19:40:53,007 - __main__ - DEBUG - Sample IDs: [172595 237071 361551 341681 362716]...
+2025-03-23 19:40:53,008 - __main__ - DEBUG - Calling shard.add_vectors
+2025-03-23 19:40:53,008 - shard_node - INFO - Adding vectors: shape=(32, 512), dtype=float32
+2025-03-23 19:40:53,008 - shard_node - INFO - Adding 32 vectors with IDs range: 172595 to 303713
+2025-03-23 19:40:53,008 - shard_node - INFO - Index now contains 458 total vectors
+2025-03-23 19:40:53,008 - shard_node - INFO - Getting shard statistics
+2025-03-23 19:40:53,008 - __main__ - INFO - Shard stats after adding vectors: {'total_vectors': 458, 'dimension': 512, 'index_type': 'FlatL2', 'metric': 'L2', 'memory_usage_mb': 0.9, 'next_id': 0, 'sample_ids': [357737, 158744, 543043, 214224, 76547], 'storage_path': 'data/shard_0', 'timestamp': 1742773253.008805}
+2025-03-23 19:40:53,009 - werkzeug - INFO - 127.0.0.1 - - [23/Mar/2025 19:40:53] "POST /add_vectors HTTP/1.1" 200 -
+2025-03-23 19:40:53,012 - shard_node - INFO - Getting shard statistics
+2025-03-23 19:40:53,012 - werkzeug - INFO - 127.0.0.1 - - [23/Mar/2025 19:40:53] "GET /stats HTTP/1.1" 200 -
+2025-03-23 19:40:53,020 - shard_node - INFO - Getting shard statistics
+2025-03-23 19:40:53,020 - werkzeug - INFO - 127.0.0.1 - - [23/Mar/2025 19:40:53] "GET /stats HTTP/1.1" 200 -
+2025-03-23 19:40:54,113 - __main__ - INFO - Received request to add 21 vectors with shape (21, 512)
+2025-03-23 19:40:54,114 - __main__ - DEBUG - IDs provided with shape (21,)
+2025-03-23 19:40:54,114 - __main__ - DEBUG - Sample IDs: [201676 479596 372317 465430  31296]...
+2025-03-23 19:40:54,114 - __main__ - DEBUG - Calling shard.add_vectors
+2025-03-23 19:40:54,114 - shard_node - INFO - Adding vectors: shape=(21, 512), dtype=float32
+2025-03-23 19:40:54,114 - shard_node - INFO - Adding 21 vectors with IDs range: 201676 to 27620
+2025-03-23 19:40:54,114 - shard_node - INFO - Index now contains 479 total vectors
+2025-03-23 19:40:54,114 - shard_node - INFO - Getting shard statistics
+2025-03-23 19:40:54,114 - __main__ - INFO - Shard stats after adding vectors: {'total_vectors': 479, 'dimension': 512, 'index_type': 'FlatL2', 'metric': 'L2', 'memory_usage_mb': 0.94, 'next_id': 0, 'sample_ids': [357737, 158744, 543043, 214224, 76547], 'storage_path': 'data/shard_0', 'timestamp': 1742773254.114408}
+2025-03-23 19:40:54,114 - werkzeug - INFO - 127.0.0.1 - - [23/Mar/2025 19:40:54] "POST /add_vectors HTTP/1.1" 200 -
+2025-03-23 19:40:54,120 - shard_node - INFO - Getting shard statistics
+2025-03-23 19:40:54,121 - werkzeug - INFO - 127.0.0.1 - - [23/Mar/2025 19:40:54] "GET /stats HTTP/1.1" 200 -
+2025-03-23 19:40:54,130 - shard_node - INFO - Getting shard statistics
+2025-03-23 19:40:54,130 - werkzeug - INFO - 127.0.0.1 - - [23/Mar/2025 19:40:54] "GET /stats HTTP/1.1" 200 -
+2025-03-23 19:40:55,244 - __main__ - INFO - Received request to add 43 vectors with shape (43, 512)
+2025-03-23 19:40:55,245 - __main__ - DEBUG - IDs provided with shape (43,)
+2025-03-23 19:40:55,245 - __main__ - DEBUG - Sample IDs: [134112 312192 195045 523100 424135]...
+2025-03-23 19:40:55,245 - __main__ - DEBUG - Calling shard.add_vectors
+2025-03-23 19:40:55,245 - shard_node - INFO - Adding vectors: shape=(43, 512), dtype=float32
+2025-03-23 19:40:55,245 - shard_node - INFO - Adding 43 vectors with IDs range: 134112 to 404191
+2025-03-23 19:40:55,245 - shard_node - INFO - Index now contains 522 total vectors
+2025-03-23 19:40:55,245 - shard_node - INFO - Getting shard statistics
+2025-03-23 19:40:55,245 - __main__ - INFO - Shard stats after adding vectors: {'total_vectors': 522, 'dimension': 512, 'index_type': 'FlatL2', 'metric': 'L2', 'memory_usage_mb': 1.02, 'next_id': 0, 'sample_ids': [357737, 158744, 543043, 214224, 76547], 'storage_path': 'data/shard_0', 'timestamp': 1742773255.2454479}
+2025-03-23 19:40:55,245 - werkzeug - INFO - 127.0.0.1 - - [23/Mar/2025 19:40:55] "POST /add_vectors HTTP/1.1" 200 -
+2025-03-23 19:40:55,247 - shard_node - INFO - Getting shard statistics
+2025-03-23 19:40:55,247 - werkzeug - INFO - 127.0.0.1 - - [23/Mar/2025 19:40:55] "GET /stats HTTP/1.1" 200 -
+2025-03-23 19:40:55,254 - shard_node - INFO - Getting shard statistics
+2025-03-23 19:40:55,255 - werkzeug - INFO - 127.0.0.1 - - [23/Mar/2025 19:40:55] "GET /stats HTTP/1.1" 200 -
+2025-03-23 19:40:56,380 - __main__ - INFO - Received request to add 34 vectors with shape (34, 512)
+2025-03-23 19:40:56,380 - __main__ - DEBUG - IDs provided with shape (34,)
+2025-03-23 19:40:56,380 - __main__ - DEBUG - Sample IDs: [152120 218091  65798 522156 423506]...
+2025-03-23 19:40:56,380 - __main__ - DEBUG - Calling shard.add_vectors
+2025-03-23 19:40:56,380 - shard_node - INFO - Adding vectors: shape=(34, 512), dtype=float32
+2025-03-23 19:40:56,380 - shard_node - INFO - Adding 34 vectors with IDs range: 152120 to 38070
+2025-03-23 19:40:56,381 - shard_node - INFO - Index now contains 556 total vectors
+2025-03-23 19:40:56,381 - shard_node - INFO - Getting shard statistics
+2025-03-23 19:40:56,381 - __main__ - INFO - Shard stats after adding vectors: {'total_vectors': 556, 'dimension': 512, 'index_type': 'FlatL2', 'metric': 'L2', 'memory_usage_mb': 1.09, 'next_id': 0, 'sample_ids': [357737, 158744, 543043, 214224, 76547], 'storage_path': 'data/shard_0', 'timestamp': 1742773256.381221}
+2025-03-23 19:40:56,381 - werkzeug - INFO - 127.0.0.1 - - [23/Mar/2025 19:40:56] "POST /add_vectors HTTP/1.1" 200 -
+2025-03-23 19:40:56,383 - shard_node - INFO - Getting shard statistics
+2025-03-23 19:40:56,384 - werkzeug - INFO - 127.0.0.1 - - [23/Mar/2025 19:40:56] "GET /stats HTTP/1.1" 200 -
+2025-03-23 19:40:56,391 - shard_node - INFO - Getting shard statistics
+2025-03-23 19:40:56,391 - werkzeug - INFO - 127.0.0.1 - - [23/Mar/2025 19:40:56] "GET /stats HTTP/1.1" 200 -
+2025-03-23 19:40:57,518 - __main__ - INFO - Received request to add 34 vectors with shape (34, 512)
+2025-03-23 19:40:57,518 - __main__ - DEBUG - IDs provided with shape (34,)
+2025-03-23 19:40:57,518 - __main__ - DEBUG - Sample IDs: [463283 465180  91779 157138 521259]...
+2025-03-23 19:40:57,518 - __main__ - DEBUG - Calling shard.add_vectors
+2025-03-23 19:40:57,518 - shard_node - INFO - Adding vectors: shape=(34, 512), dtype=float32
+2025-03-23 19:40:57,518 - shard_node - INFO - Adding 34 vectors with IDs range: 463283 to 260261
+2025-03-23 19:40:57,518 - shard_node - INFO - Index now contains 590 total vectors
+2025-03-23 19:40:57,518 - shard_node - INFO - Getting shard statistics
+2025-03-23 19:40:57,519 - __main__ - INFO - Shard stats after adding vectors: {'total_vectors': 590, 'dimension': 512, 'index_type': 'FlatL2', 'metric': 'L2', 'memory_usage_mb': 1.16, 'next_id': 0, 'sample_ids': [357737, 158744, 543043, 214224, 76547], 'storage_path': 'data/shard_0', 'timestamp': 1742773257.519092}
+2025-03-23 19:40:57,519 - werkzeug - INFO - 127.0.0.1 - - [23/Mar/2025 19:40:57] "POST /add_vectors HTTP/1.1" 200 -
+2025-03-23 19:40:57,522 - shard_node - INFO - Getting shard statistics
+2025-03-23 19:40:57,522 - werkzeug - INFO - 127.0.0.1 - - [23/Mar/2025 19:40:57] "GET /stats HTTP/1.1" 200 -
+2025-03-23 19:40:57,529 - shard_node - INFO - Getting shard statistics
+2025-03-23 19:40:57,530 - werkzeug - INFO - 127.0.0.1 - - [23/Mar/2025 19:40:57] "GET /stats HTTP/1.1" 200 -
+2025-03-23 19:40:58,627 - __main__ - INFO - Received request to add 30 vectors with shape (30, 512)
+2025-03-23 19:40:58,627 - __main__ - DEBUG - IDs provided with shape (30,)
+2025-03-23 19:40:58,627 - __main__ - DEBUG - Sample IDs: [466339  93437 504580   2299  20992]...
+2025-03-23 19:40:58,627 - __main__ - DEBUG - Calling shard.add_vectors
+2025-03-23 19:40:58,627 - shard_node - INFO - Adding vectors: shape=(30, 512), dtype=float32
+2025-03-23 19:40:58,627 - shard_node - INFO - Adding 30 vectors with IDs range: 466339 to 203488
+2025-03-23 19:40:58,627 - shard_node - INFO - Index now contains 620 total vectors
+2025-03-23 19:40:58,627 - shard_node - INFO - Getting shard statistics
+2025-03-23 19:40:58,627 - __main__ - INFO - Shard stats after adding vectors: {'total_vectors': 620, 'dimension': 512, 'index_type': 'FlatL2', 'metric': 'L2', 'memory_usage_mb': 1.22, 'next_id': 0, 'sample_ids': [357737, 158744, 543043, 214224, 76547], 'storage_path': 'data/shard_0', 'timestamp': 1742773258.6279309}
+2025-03-23 19:40:58,628 - werkzeug - INFO - 127.0.0.1 - - [23/Mar/2025 19:40:58] "POST /add_vectors HTTP/1.1" 200 -
+2025-03-23 19:40:58,631 - shard_node - INFO - Getting shard statistics
+2025-03-23 19:40:58,631 - werkzeug - INFO - 127.0.0.1 - - [23/Mar/2025 19:40:58] "GET /stats HTTP/1.1" 200 -
+2025-03-23 19:40:58,638 - shard_node - INFO - Getting shard statistics
+2025-03-23 19:40:58,639 - werkzeug - INFO - 127.0.0.1 - - [23/Mar/2025 19:40:58] "GET /stats HTTP/1.1" 200 -
+2025-03-23 19:40:59,754 - __main__ - INFO - Received request to add 39 vectors with shape (39, 512)
+2025-03-23 19:40:59,754 - __main__ - DEBUG - IDs provided with shape (39,)
+2025-03-23 19:40:59,754 - __main__ - DEBUG - Sample IDs: [278006 503823 244099 117492  14831]...
+2025-03-23 19:40:59,754 - __main__ - DEBUG - Calling shard.add_vectors
+2025-03-23 19:40:59,754 - shard_node - INFO - Adding vectors: shape=(39, 512), dtype=float32
+2025-03-23 19:40:59,754 - shard_node - INFO - Adding 39 vectors with IDs range: 278006 to 185292
+2025-03-23 19:40:59,754 - shard_node - INFO - Index now contains 659 total vectors
+2025-03-23 19:40:59,754 - shard_node - INFO - Getting shard statistics
+2025-03-23 19:40:59,754 - __main__ - INFO - Shard stats after adding vectors: {'total_vectors': 659, 'dimension': 512, 'index_type': 'FlatL2', 'metric': 'L2', 'memory_usage_mb': 1.29, 'next_id': 0, 'sample_ids': [357737, 158744, 543043, 214224, 76547], 'storage_path': 'data/shard_0', 'timestamp': 1742773259.754545}
+2025-03-23 19:40:59,754 - werkzeug - INFO - 127.0.0.1 - - [23/Mar/2025 19:40:59] "POST /add_vectors HTTP/1.1" 200 -
+2025-03-23 19:40:59,757 - shard_node - INFO - Getting shard statistics
+2025-03-23 19:40:59,757 - werkzeug - INFO - 127.0.0.1 - - [23/Mar/2025 19:40:59] "GET /stats HTTP/1.1" 200 -
+2025-03-23 19:40:59,764 - shard_node - INFO - Getting shard statistics
+2025-03-23 19:40:59,764 - werkzeug - INFO - 127.0.0.1 - - [23/Mar/2025 19:40:59] "GET /stats HTTP/1.1" 200 -
+2025-03-23 19:41:00,888 - __main__ - INFO - Received request to add 27 vectors with shape (27, 512)
+2025-03-23 19:41:00,888 - __main__ - DEBUG - IDs provided with shape (27,)
+2025-03-23 19:41:00,889 - __main__ - DEBUG - Sample IDs: [ 55299 396518  15440 279278 109055]...
+2025-03-23 19:41:00,889 - __main__ - DEBUG - Calling shard.add_vectors
+2025-03-23 19:41:00,889 - shard_node - INFO - Adding vectors: shape=(27, 512), dtype=float32
+2025-03-23 19:41:00,889 - shard_node - INFO - Adding 27 vectors with IDs range: 55299 to 33109
+2025-03-23 19:41:00,889 - shard_node - INFO - Index now contains 686 total vectors
+2025-03-23 19:41:00,889 - shard_node - INFO - Getting shard statistics
+2025-03-23 19:41:00,889 - __main__ - INFO - Shard stats after adding vectors: {'total_vectors': 686, 'dimension': 512, 'index_type': 'FlatL2', 'metric': 'L2', 'memory_usage_mb': 1.35, 'next_id': 0, 'sample_ids': [357737, 158744, 543043, 214224, 76547], 'storage_path': 'data/shard_0', 'timestamp': 1742773260.889407}
+2025-03-23 19:41:00,889 - werkzeug - INFO - 127.0.0.1 - - [23/Mar/2025 19:41:00] "POST /add_vectors HTTP/1.1" 200 -
+2025-03-23 19:41:00,893 - shard_node - INFO - Getting shard statistics
+2025-03-23 19:41:00,893 - werkzeug - INFO - 127.0.0.1 - - [23/Mar/2025 19:41:00] "GET /stats HTTP/1.1" 200 -
+2025-03-23 19:41:00,902 - shard_node - INFO - Getting shard statistics
+2025-03-23 19:41:00,902 - werkzeug - INFO - 127.0.0.1 - - [23/Mar/2025 19:41:00] "GET /stats HTTP/1.1" 200 -
+2025-03-23 19:41:02,001 - __main__ - INFO - Received request to add 30 vectors with shape (30, 512)
+2025-03-23 19:41:02,001 - __main__ - DEBUG - IDs provided with shape (30,)
+2025-03-23 19:41:02,001 - __main__ - DEBUG - Sample IDs: [465806 115870  86956 210032  75612]...
+2025-03-23 19:41:02,001 - __main__ - DEBUG - Calling shard.add_vectors
+2025-03-23 19:41:02,001 - shard_node - INFO - Adding vectors: shape=(30, 512), dtype=float32
+2025-03-23 19:41:02,001 - shard_node - INFO - Adding 30 vectors with IDs range: 465806 to 97278
+2025-03-23 19:41:02,001 - shard_node - INFO - Index now contains 716 total vectors
+2025-03-23 19:41:02,001 - shard_node - INFO - Getting shard statistics
+2025-03-23 19:41:02,001 - __main__ - INFO - Shard stats after adding vectors: {'total_vectors': 716, 'dimension': 512, 'index_type': 'FlatL2', 'metric': 'L2', 'memory_usage_mb': 1.4, 'next_id': 0, 'sample_ids': [357737, 158744, 543043, 214224, 76547], 'storage_path': 'data/shard_0', 'timestamp': 1742773262.0019069}
+2025-03-23 19:41:02,002 - werkzeug - INFO - 127.0.0.1 - - [23/Mar/2025 19:41:02] "POST /add_vectors HTTP/1.1" 200 -
+2025-03-23 19:41:02,005 - shard_node - INFO - Getting shard statistics
+2025-03-23 19:41:02,005 - werkzeug - INFO - 127.0.0.1 - - [23/Mar/2025 19:41:02] "GET /stats HTTP/1.1" 200 -
+2025-03-23 19:41:02,013 - shard_node - INFO - Getting shard statistics
+2025-03-23 19:41:02,013 - werkzeug - INFO - 127.0.0.1 - - [23/Mar/2025 19:41:02] "GET /stats HTTP/1.1" 200 -
+2025-03-23 19:41:03,136 - __main__ - INFO - Received request to add 36 vectors with shape (36, 512)
+2025-03-23 19:41:03,137 - __main__ - DEBUG - IDs provided with shape (36,)
+2025-03-23 19:41:03,137 - __main__ - DEBUG - Sample IDs: [ 35197 226147 437205 260106 542856]...
+2025-03-23 19:41:03,137 - __main__ - DEBUG - Calling shard.add_vectors
+2025-03-23 19:41:03,137 - shard_node - INFO - Adding vectors: shape=(36, 512), dtype=float32
+2025-03-23 19:41:03,137 - shard_node - INFO - Adding 36 vectors with IDs range: 35197 to 240767
+2025-03-23 19:41:03,137 - shard_node - INFO - Index now contains 752 total vectors
+2025-03-23 19:41:03,137 - shard_node - INFO - Getting shard statistics
+2025-03-23 19:41:03,137 - __main__ - INFO - Shard stats after adding vectors: {'total_vectors': 752, 'dimension': 512, 'index_type': 'FlatL2', 'metric': 'L2', 'memory_usage_mb': 1.47, 'next_id': 0, 'sample_ids': [357737, 158744, 543043, 214224, 76547], 'storage_path': 'data/shard_0', 'timestamp': 1742773263.137446}
+2025-03-23 19:41:03,137 - werkzeug - INFO - 127.0.0.1 - - [23/Mar/2025 19:41:03] "POST /add_vectors HTTP/1.1" 200 -
+2025-03-23 19:41:03,140 - shard_node - INFO - Getting shard statistics
+2025-03-23 19:41:03,140 - werkzeug - INFO - 127.0.0.1 - - [23/Mar/2025 19:41:03] "GET /stats HTTP/1.1" 200 -
+2025-03-23 19:41:03,148 - shard_node - INFO - Getting shard statistics
+2025-03-23 19:41:03,149 - werkzeug - INFO - 127.0.0.1 - - [23/Mar/2025 19:41:03] "GET /stats HTTP/1.1" 200 -
+2025-03-23 19:41:04,270 - __main__ - INFO - Received request to add 34 vectors with shape (34, 512)
+2025-03-23 19:41:04,270 - __main__ - DEBUG - IDs provided with shape (34,)
+2025-03-23 19:41:04,271 - __main__ - DEBUG - Sample IDs: [289229 301061 477227 260266 129812]...
+2025-03-23 19:41:04,271 - __main__ - DEBUG - Calling shard.add_vectors
+2025-03-23 19:41:04,271 - shard_node - INFO - Adding vectors: shape=(34, 512), dtype=float32
+2025-03-23 19:41:04,271 - shard_node - INFO - Adding 34 vectors with IDs range: 289229 to 236592
+2025-03-23 19:41:04,271 - shard_node - INFO - Index now contains 786 total vectors
+2025-03-23 19:41:04,271 - shard_node - INFO - Getting shard statistics
+2025-03-23 19:41:04,271 - __main__ - INFO - Shard stats after adding vectors: {'total_vectors': 786, 'dimension': 512, 'index_type': 'FlatL2', 'metric': 'L2', 'memory_usage_mb': 1.54, 'next_id': 0, 'sample_ids': [357737, 158744, 543043, 214224, 76547], 'storage_path': 'data/shard_0', 'timestamp': 1742773264.271453}
+2025-03-23 19:41:04,271 - werkzeug - INFO - 127.0.0.1 - - [23/Mar/2025 19:41:04] "POST /add_vectors HTTP/1.1" 200 -
+2025-03-23 19:41:04,274 - shard_node - INFO - Getting shard statistics
+2025-03-23 19:41:04,274 - werkzeug - INFO - 127.0.0.1 - - [23/Mar/2025 19:41:04] "GET /stats HTTP/1.1" 200 -
+2025-03-23 19:41:04,282 - shard_node - INFO - Getting shard statistics
+2025-03-23 19:41:04,282 - werkzeug - INFO - 127.0.0.1 - - [23/Mar/2025 19:41:04] "GET /stats HTTP/1.1" 200 -
+2025-03-23 19:41:05,389 - __main__ - INFO - Received request to add 33 vectors with shape (33, 512)
+2025-03-23 19:41:05,389 - __main__ - DEBUG - IDs provided with shape (33,)
+2025-03-23 19:41:05,389 - __main__ - DEBUG - Sample IDs: [577959 506178 282037 103585  23899]...
+2025-03-23 19:41:05,389 - __main__ - DEBUG - Calling shard.add_vectors
+2025-03-23 19:41:05,389 - shard_node - INFO - Adding vectors: shape=(33, 512), dtype=float32
+2025-03-23 19:41:05,389 - shard_node - INFO - Adding 33 vectors with IDs range: 577959 to 48396
+2025-03-23 19:41:05,389 - shard_node - INFO - Index now contains 819 total vectors
+2025-03-23 19:41:05,389 - shard_node - INFO - Getting shard statistics
+2025-03-23 19:41:05,390 - __main__ - INFO - Shard stats after adding vectors: {'total_vectors': 819, 'dimension': 512, 'index_type': 'FlatL2', 'metric': 'L2', 'memory_usage_mb': 1.61, 'next_id': 0, 'sample_ids': [357737, 158744, 543043, 214224, 76547], 'storage_path': 'data/shard_0', 'timestamp': 1742773265.390068}
+2025-03-23 19:41:05,390 - werkzeug - INFO - 127.0.0.1 - - [23/Mar/2025 19:41:05] "POST /add_vectors HTTP/1.1" 200 -
+2025-03-23 19:41:05,393 - shard_node - INFO - Getting shard statistics
+2025-03-23 19:41:05,393 - werkzeug - INFO - 127.0.0.1 - - [23/Mar/2025 19:41:05] "GET /stats HTTP/1.1" 200 -
+2025-03-23 19:41:05,400 - shard_node - INFO - Getting shard statistics
+2025-03-23 19:41:05,401 - werkzeug - INFO - 127.0.0.1 - - [23/Mar/2025 19:41:05] "GET /stats HTTP/1.1" 200 -
+2025-03-23 19:41:06,527 - __main__ - INFO - Received request to add 35 vectors with shape (35, 512)
+2025-03-23 19:41:06,527 - __main__ - DEBUG - IDs provided with shape (35,)
+2025-03-23 19:41:06,527 - __main__ - DEBUG - Sample IDs: [460160  42888 410487   6012 226408]...
+2025-03-23 19:41:06,527 - __main__ - DEBUG - Calling shard.add_vectors
+2025-03-23 19:41:06,527 - shard_node - INFO - Adding vectors: shape=(35, 512), dtype=float32
+2025-03-23 19:41:06,527 - shard_node - INFO - Adding 35 vectors with IDs range: 460160 to 531134
+2025-03-23 19:41:06,527 - shard_node - INFO - Index now contains 854 total vectors
+2025-03-23 19:41:06,527 - shard_node - INFO - Getting shard statistics
+2025-03-23 19:41:06,527 - __main__ - INFO - Shard stats after adding vectors: {'total_vectors': 854, 'dimension': 512, 'index_type': 'FlatL2', 'metric': 'L2', 'memory_usage_mb': 1.67, 'next_id': 0, 'sample_ids': [357737, 158744, 543043, 214224, 76547], 'storage_path': 'data/shard_0', 'timestamp': 1742773266.52785}
+2025-03-23 19:41:06,528 - werkzeug - INFO - 127.0.0.1 - - [23/Mar/2025 19:41:06] "POST /add_vectors HTTP/1.1" 200 -
+2025-03-23 19:41:06,530 - shard_node - INFO - Getting shard statistics
+2025-03-23 19:41:06,530 - werkzeug - INFO - 127.0.0.1 - - [23/Mar/2025 19:41:06] "GET /stats HTTP/1.1" 200 -
+2025-03-23 19:41:06,538 - shard_node - INFO - Getting shard statistics
+2025-03-23 19:41:06,538 - werkzeug - INFO - 127.0.0.1 - - [23/Mar/2025 19:41:06] "GET /stats HTTP/1.1" 200 -
+2025-03-23 19:41:07,661 - __main__ - INFO - Received request to add 38 vectors with shape (38, 512)
+2025-03-23 19:41:07,661 - __main__ - DEBUG - IDs provided with shape (38,)
+2025-03-23 19:41:07,661 - __main__ - DEBUG - Sample IDs: [525155  77396 343706 289741  84752]...
+2025-03-23 19:41:07,661 - __main__ - DEBUG - Calling shard.add_vectors
+2025-03-23 19:41:07,661 - shard_node - INFO - Adding vectors: shape=(38, 512), dtype=float32
+2025-03-23 19:41:07,661 - shard_node - INFO - Adding 38 vectors with IDs range: 525155 to 100283
+2025-03-23 19:41:07,661 - shard_node - INFO - Index now contains 892 total vectors
+2025-03-23 19:41:07,661 - shard_node - INFO - Getting shard statistics
+2025-03-23 19:41:07,661 - __main__ - INFO - Shard stats after adding vectors: {'total_vectors': 892, 'dimension': 512, 'index_type': 'FlatL2', 'metric': 'L2', 'memory_usage_mb': 1.75, 'next_id': 0, 'sample_ids': [357737, 158744, 543043, 214224, 76547], 'storage_path': 'data/shard_0', 'timestamp': 1742773267.661613}
+2025-03-23 19:41:07,661 - werkzeug - INFO - 127.0.0.1 - - [23/Mar/2025 19:41:07] "POST /add_vectors HTTP/1.1" 200 -
+2025-03-23 19:41:07,663 - shard_node - INFO - Getting shard statistics
+2025-03-23 19:41:07,664 - werkzeug - INFO - 127.0.0.1 - - [23/Mar/2025 19:41:07] "GET /stats HTTP/1.1" 200 -
+2025-03-23 19:41:07,671 - shard_node - INFO - Getting shard statistics
+2025-03-23 19:41:07,671 - werkzeug - INFO - 127.0.0.1 - - [23/Mar/2025 19:41:07] "GET /stats HTTP/1.1" 200 -
+2025-03-23 19:41:08,773 - __main__ - INFO - Received request to add 33 vectors with shape (33, 512)
+2025-03-23 19:41:08,773 - __main__ - DEBUG - IDs provided with shape (33,)
+2025-03-23 19:41:08,773 - __main__ - DEBUG - Sample IDs: [119088 547854 417911    724 419096]...
+2025-03-23 19:41:08,773 - __main__ - DEBUG - Calling shard.add_vectors
+2025-03-23 19:41:08,773 - shard_node - INFO - Adding vectors: shape=(33, 512), dtype=float32
+2025-03-23 19:41:08,773 - shard_node - INFO - Adding 33 vectors with IDs range: 119088 to 45090
+2025-03-23 19:41:08,773 - shard_node - INFO - Index now contains 925 total vectors
+2025-03-23 19:41:08,773 - shard_node - INFO - Getting shard statistics
+2025-03-23 19:41:08,774 - __main__ - INFO - Shard stats after adding vectors: {'total_vectors': 925, 'dimension': 512, 'index_type': 'FlatL2', 'metric': 'L2', 'memory_usage_mb': 1.81, 'next_id': 0, 'sample_ids': [357737, 158744, 543043, 214224, 76547], 'storage_path': 'data/shard_0', 'timestamp': 1742773268.774014}
+2025-03-23 19:41:08,774 - werkzeug - INFO - 127.0.0.1 - - [23/Mar/2025 19:41:08] "POST /add_vectors HTTP/1.1" 200 -
+2025-03-23 19:41:08,776 - shard_node - INFO - Getting shard statistics
+2025-03-23 19:41:08,776 - werkzeug - INFO - 127.0.0.1 - - [23/Mar/2025 19:41:08] "GET /stats HTTP/1.1" 200 -
+2025-03-23 19:41:08,784 - shard_node - INFO - Getting shard statistics
+2025-03-23 19:41:08,784 - werkzeug - INFO - 127.0.0.1 - - [23/Mar/2025 19:41:08] "GET /stats HTTP/1.1" 200 -
+2025-03-23 19:41:09,890 - __main__ - INFO - Received request to add 34 vectors with shape (34, 512)
+2025-03-23 19:41:09,890 - __main__ - DEBUG - IDs provided with shape (34,)
+2025-03-23 19:41:09,890 - __main__ - DEBUG - Sample IDs: [306139 193429  28452 396338 255401]...
+2025-03-23 19:41:09,890 - __main__ - DEBUG - Calling shard.add_vectors
+2025-03-23 19:41:09,890 - shard_node - INFO - Adding vectors: shape=(34, 512), dtype=float32
+2025-03-23 19:41:09,890 - shard_node - INFO - Adding 34 vectors with IDs range: 306139 to 267670
+2025-03-23 19:41:09,890 - shard_node - INFO - Index now contains 959 total vectors
+2025-03-23 19:41:09,890 - shard_node - INFO - Getting shard statistics
+2025-03-23 19:41:09,891 - __main__ - INFO - Shard stats after adding vectors: {'total_vectors': 959, 'dimension': 512, 'index_type': 'FlatL2', 'metric': 'L2', 'memory_usage_mb': 1.88, 'next_id': 0, 'sample_ids': [357737, 158744, 543043, 214224, 76547], 'storage_path': 'data/shard_0', 'timestamp': 1742773269.891123}
+2025-03-23 19:41:09,891 - werkzeug - INFO - 127.0.0.1 - - [23/Mar/2025 19:41:09] "POST /add_vectors HTTP/1.1" 200 -
+2025-03-23 19:41:09,894 - shard_node - INFO - Getting shard statistics
+2025-03-23 19:41:09,895 - werkzeug - INFO - 127.0.0.1 - - [23/Mar/2025 19:41:09] "GET /stats HTTP/1.1" 200 -
+2025-03-23 19:41:09,902 - shard_node - INFO - Getting shard statistics
+2025-03-23 19:41:09,902 - werkzeug - INFO - 127.0.0.1 - - [23/Mar/2025 19:41:09] "GET /stats HTTP/1.1" 200 -
+2025-03-23 19:41:11,030 - __main__ - INFO - Received request to add 34 vectors with shape (34, 512)
+2025-03-23 19:41:11,030 - __main__ - DEBUG - IDs provided with shape (34,)
+2025-03-23 19:41:11,048 - __main__ - DEBUG - Sample IDs: [445846  85665 269113  41633 404601]...
+2025-03-23 19:41:11,048 - __main__ - DEBUG - Calling shard.add_vectors
+2025-03-23 19:41:11,048 - shard_node - INFO - Adding vectors: shape=(34, 512), dtype=float32
+2025-03-23 19:41:11,048 - shard_node - INFO - Adding 34 vectors with IDs range: 445846 to 521052
+2025-03-23 19:41:11,048 - shard_node - INFO - Index now contains 993 total vectors
+2025-03-23 19:41:11,048 - shard_node - INFO - Getting shard statistics
+2025-03-23 19:41:11,048 - __main__ - INFO - Shard stats after adding vectors: {'total_vectors': 993, 'dimension': 512, 'index_type': 'FlatL2', 'metric': 'L2', 'memory_usage_mb': 1.95, 'next_id': 0, 'sample_ids': [357737, 158744, 543043, 214224, 76547], 'storage_path': 'data/shard_0', 'timestamp': 1742773271.048751}
+2025-03-23 19:41:11,049 - werkzeug - INFO - 127.0.0.1 - - [23/Mar/2025 19:41:11] "POST /add_vectors HTTP/1.1" 200 -
+2025-03-23 19:41:11,051 - shard_node - INFO - Getting shard statistics
+2025-03-23 19:41:11,052 - werkzeug - INFO - 127.0.0.1 - - [23/Mar/2025 19:41:11] "GET /stats HTTP/1.1" 200 -
+2025-03-23 19:41:11,059 - shard_node - INFO - Getting shard statistics
+2025-03-23 19:41:11,060 - werkzeug - INFO - 127.0.0.1 - - [23/Mar/2025 19:41:11] "GET /stats HTTP/1.1" 200 -
+2025-03-23 19:41:12,189 - __main__ - INFO - Received request to add 39 vectors with shape (39, 512)
+2025-03-23 19:41:12,189 - __main__ - DEBUG - IDs provided with shape (39,)
+2025-03-23 19:41:12,189 - __main__ - DEBUG - Sample IDs: [491008 343315 212166 135561 161642]...
+2025-03-23 19:41:12,189 - __main__ - DEBUG - Calling shard.add_vectors
+2025-03-23 19:41:12,189 - shard_node - INFO - Adding vectors: shape=(39, 512), dtype=float32
+2025-03-23 19:41:12,189 - shard_node - INFO - Adding 39 vectors with IDs range: 491008 to 484404
+2025-03-23 19:41:12,189 - shard_node - INFO - Index now contains 1032 total vectors
+2025-03-23 19:41:12,189 - shard_node - INFO - Getting shard statistics
+2025-03-23 19:41:12,189 - __main__ - INFO - Shard stats after adding vectors: {'total_vectors': 1032, 'dimension': 512, 'index_type': 'FlatL2', 'metric': 'L2', 'memory_usage_mb': 2.02, 'next_id': 0, 'sample_ids': [357737, 158744, 543043, 214224, 76547], 'storage_path': 'data/shard_0', 'timestamp': 1742773272.1895502}
+2025-03-23 19:41:12,189 - werkzeug - INFO - 127.0.0.1 - - [23/Mar/2025 19:41:12] "POST /add_vectors HTTP/1.1" 200 -
+2025-03-23 19:41:12,192 - shard_node - INFO - Getting shard statistics
+2025-03-23 19:41:12,192 - werkzeug - INFO - 127.0.0.1 - - [23/Mar/2025 19:41:12] "GET /stats HTTP/1.1" 200 -
+2025-03-23 19:41:12,200 - shard_node - INFO - Getting shard statistics
+2025-03-23 19:41:12,200 - werkzeug - INFO - 127.0.0.1 - - [23/Mar/2025 19:41:12] "GET /stats HTTP/1.1" 200 -
+2025-03-23 19:41:13,305 - __main__ - INFO - Received request to add 31 vectors with shape (31, 512)
+2025-03-23 19:41:13,305 - __main__ - DEBUG - IDs provided with shape (31,)
+2025-03-23 19:41:13,305 - __main__ - DEBUG - Sample IDs: [457884  92091 501368 571857 227686]...
+2025-03-23 19:41:13,305 - __main__ - DEBUG - Calling shard.add_vectors
+2025-03-23 19:41:13,305 - shard_node - INFO - Adding vectors: shape=(31, 512), dtype=float32
+2025-03-23 19:41:13,305 - shard_node - INFO - Adding 31 vectors with IDs range: 457884 to 283520
+2025-03-23 19:41:13,305 - shard_node - INFO - Index now contains 1063 total vectors
+2025-03-23 19:41:13,305 - shard_node - INFO - Getting shard statistics
+2025-03-23 19:41:13,305 - __main__ - INFO - Shard stats after adding vectors: {'total_vectors': 1063, 'dimension': 512, 'index_type': 'FlatL2', 'metric': 'L2', 'memory_usage_mb': 2.08, 'next_id': 0, 'sample_ids': [357737, 158744, 543043, 214224, 76547], 'storage_path': 'data/shard_0', 'timestamp': 1742773273.305696}
+2025-03-23 19:41:13,305 - werkzeug - INFO - 127.0.0.1 - - [23/Mar/2025 19:41:13] "POST /add_vectors HTTP/1.1" 200 -
+2025-03-23 19:41:13,309 - shard_node - INFO - Getting shard statistics
+2025-03-23 19:41:13,309 - werkzeug - INFO - 127.0.0.1 - - [23/Mar/2025 19:41:13] "GET /stats HTTP/1.1" 200 -
+2025-03-23 19:41:13,316 - shard_node - INFO - Getting shard statistics
+2025-03-23 19:41:13,316 - werkzeug - INFO - 127.0.0.1 - - [23/Mar/2025 19:41:13] "GET /stats HTTP/1.1" 200 -
+2025-03-23 19:41:14,426 - __main__ - INFO - Received request to add 29 vectors with shape (29, 512)
+2025-03-23 19:41:14,426 - __main__ - DEBUG - IDs provided with shape (29,)
+2025-03-23 19:41:14,426 - __main__ - DEBUG - Sample IDs: [492110 371749  39951 343937 342397]...
+2025-03-23 19:41:14,426 - __main__ - DEBUG - Calling shard.add_vectors
+2025-03-23 19:41:14,426 - shard_node - INFO - Adding vectors: shape=(29, 512), dtype=float32
+2025-03-23 19:41:14,426 - shard_node - INFO - Adding 29 vectors with IDs range: 492110 to 60363
+2025-03-23 19:41:14,426 - shard_node - INFO - Index now contains 1092 total vectors
+2025-03-23 19:41:14,426 - shard_node - INFO - Getting shard statistics
+2025-03-23 19:41:14,427 - __main__ - INFO - Shard stats after adding vectors: {'total_vectors': 1092, 'dimension': 512, 'index_type': 'FlatL2', 'metric': 'L2', 'memory_usage_mb': 2.14, 'next_id': 0, 'sample_ids': [357737, 171050, 158744, 543043, 214224], 'storage_path': 'data/shard_0', 'timestamp': 1742773274.427107}
+2025-03-23 19:41:14,427 - werkzeug - INFO - 127.0.0.1 - - [23/Mar/2025 19:41:14] "POST /add_vectors HTTP/1.1" 200 -
+2025-03-23 19:41:14,432 - shard_node - INFO - Getting shard statistics
+2025-03-23 19:41:14,432 - werkzeug - INFO - 127.0.0.1 - - [23/Mar/2025 19:41:14] "GET /stats HTTP/1.1" 200 -
+2025-03-23 19:41:14,439 - shard_node - INFO - Getting shard statistics
+2025-03-23 19:41:14,440 - werkzeug - INFO - 127.0.0.1 - - [23/Mar/2025 19:41:14] "GET /stats HTTP/1.1" 200 -
+2025-03-23 19:41:15,566 - __main__ - INFO - Received request to add 35 vectors with shape (35, 512)
+2025-03-23 19:41:15,566 - __main__ - DEBUG - IDs provided with shape (35,)
+2025-03-23 19:41:15,566 - __main__ - DEBUG - Sample IDs: [163118 232489 403584 416837 274219]...
+2025-03-23 19:41:15,566 - __main__ - DEBUG - Calling shard.add_vectors
+2025-03-23 19:41:15,566 - shard_node - INFO - Adding vectors: shape=(35, 512), dtype=float32
+2025-03-23 19:41:15,566 - shard_node - INFO - Adding 35 vectors with IDs range: 163118 to 312406
+2025-03-23 19:41:15,566 - shard_node - INFO - Index now contains 1127 total vectors
+2025-03-23 19:41:15,566 - shard_node - INFO - Getting shard statistics
+2025-03-23 19:41:15,566 - __main__ - INFO - Shard stats after adding vectors: {'total_vectors': 1127, 'dimension': 512, 'index_type': 'FlatL2', 'metric': 'L2', 'memory_usage_mb': 2.21, 'next_id': 0, 'sample_ids': [357737, 171050, 158744, 543043, 214224], 'storage_path': 'data/shard_0', 'timestamp': 1742773275.566893}
+2025-03-23 19:41:15,567 - werkzeug - INFO - 127.0.0.1 - - [23/Mar/2025 19:41:15] "POST /add_vectors HTTP/1.1" 200 -
+2025-03-23 19:41:15,570 - shard_node - INFO - Getting shard statistics
+2025-03-23 19:41:15,571 - werkzeug - INFO - 127.0.0.1 - - [23/Mar/2025 19:41:15] "GET /stats HTTP/1.1" 200 -
+2025-03-23 19:41:15,578 - shard_node - INFO - Getting shard statistics
+2025-03-23 19:41:15,579 - werkzeug - INFO - 127.0.0.1 - - [23/Mar/2025 19:41:15] "GET /stats HTTP/1.1" 200 -
+2025-03-23 19:41:16,678 - __main__ - INFO - Received request to add 41 vectors with shape (41, 512)
+2025-03-23 19:41:16,678 - __main__ - DEBUG - IDs provided with shape (41,)
+2025-03-23 19:41:16,678 - __main__ - DEBUG - Sample IDs: [ 42276 522007  86220 228771 325527]...
+2025-03-23 19:41:16,678 - __main__ - DEBUG - Calling shard.add_vectors
+2025-03-23 19:41:16,678 - shard_node - INFO - Adding vectors: shape=(41, 512), dtype=float32
+2025-03-23 19:41:16,678 - shard_node - INFO - Adding 41 vectors with IDs range: 42276 to 565012
+2025-03-23 19:41:16,678 - shard_node - INFO - Index now contains 1168 total vectors
+2025-03-23 19:41:16,678 - shard_node - INFO - Getting shard statistics
+2025-03-23 19:41:16,679 - __main__ - INFO - Shard stats after adding vectors: {'total_vectors': 1168, 'dimension': 512, 'index_type': 'FlatL2', 'metric': 'L2', 'memory_usage_mb': 2.29, 'next_id': 0, 'sample_ids': [357737, 171050, 158744, 543043, 214224], 'storage_path': 'data/shard_0', 'timestamp': 1742773276.679061}
+2025-03-23 19:41:16,679 - werkzeug - INFO - 127.0.0.1 - - [23/Mar/2025 19:41:16] "POST /add_vectors HTTP/1.1" 200 -
+2025-03-23 19:41:16,681 - shard_node - INFO - Getting shard statistics
+2025-03-23 19:41:16,681 - werkzeug - INFO - 127.0.0.1 - - [23/Mar/2025 19:41:16] "GET /stats HTTP/1.1" 200 -
+2025-03-23 19:41:16,688 - shard_node - INFO - Getting shard statistics
+2025-03-23 19:41:16,688 - werkzeug - INFO - 127.0.0.1 - - [23/Mar/2025 19:41:16] "GET /stats HTTP/1.1" 200 -
+2025-03-23 19:41:17,813 - __main__ - INFO - Received request to add 33 vectors with shape (33, 512)
+2025-03-23 19:41:17,813 - __main__ - DEBUG - IDs provided with shape (33,)
+2025-03-23 19:41:17,813 - __main__ - DEBUG - Sample IDs: [456143 293044 352618 146831 200162]...
+2025-03-23 19:41:17,813 - __main__ - DEBUG - Calling shard.add_vectors
+2025-03-23 19:41:17,814 - shard_node - INFO - Adding vectors: shape=(33, 512), dtype=float32
+2025-03-23 19:41:17,814 - shard_node - INFO - Adding 33 vectors with IDs range: 456143 to 569825
+2025-03-23 19:41:17,814 - shard_node - INFO - Index now contains 1201 total vectors
+2025-03-23 19:41:17,814 - shard_node - INFO - Getting shard statistics
+2025-03-23 19:41:17,814 - __main__ - INFO - Shard stats after adding vectors: {'total_vectors': 1201, 'dimension': 512, 'index_type': 'FlatL2', 'metric': 'L2', 'memory_usage_mb': 2.35, 'next_id': 0, 'sample_ids': [357737, 171050, 158744, 543043, 214224], 'storage_path': 'data/shard_0', 'timestamp': 1742773277.81425}
+2025-03-23 19:41:17,814 - werkzeug - INFO - 127.0.0.1 - - [23/Mar/2025 19:41:17] "POST /add_vectors HTTP/1.1" 200 -
+2025-03-23 19:41:17,816 - shard_node - INFO - Getting shard statistics
+2025-03-23 19:41:17,816 - werkzeug - INFO - 127.0.0.1 - - [23/Mar/2025 19:41:17] "GET /stats HTTP/1.1" 200 -
+2025-03-23 19:41:17,825 - shard_node - INFO - Getting shard statistics
+2025-03-23 19:41:17,825 - werkzeug - INFO - 127.0.0.1 - - [23/Mar/2025 19:41:17] "GET /stats HTTP/1.1" 200 -
+2025-03-23 19:41:18,929 - __main__ - INFO - Received request to add 40 vectors with shape (40, 512)
+2025-03-23 19:41:18,930 - __main__ - DEBUG - IDs provided with shape (40,)
+2025-03-23 19:41:18,930 - __main__ - DEBUG - Sample IDs: [ 29984 137576 290771 154947 414170]...
+2025-03-23 19:41:18,930 - __main__ - DEBUG - Calling shard.add_vectors
+2025-03-23 19:41:18,930 - shard_node - INFO - Adding vectors: shape=(40, 512), dtype=float32
+2025-03-23 19:41:18,930 - shard_node - INFO - Adding 40 vectors with IDs range: 29984 to 318114
+2025-03-23 19:41:18,930 - shard_node - INFO - Index now contains 1241 total vectors
+2025-03-23 19:41:18,930 - shard_node - INFO - Getting shard statistics
+2025-03-23 19:41:18,930 - __main__ - INFO - Shard stats after adding vectors: {'total_vectors': 1241, 'dimension': 512, 'index_type': 'FlatL2', 'metric': 'L2', 'memory_usage_mb': 2.43, 'next_id': 0, 'sample_ids': [357737, 171050, 158744, 543043, 214224], 'storage_path': 'data/shard_0', 'timestamp': 1742773278.93057}
+2025-03-23 19:41:18,930 - werkzeug - INFO - 127.0.0.1 - - [23/Mar/2025 19:41:18] "POST /add_vectors HTTP/1.1" 200 -
+2025-03-23 19:41:18,933 - shard_node - INFO - Getting shard statistics
+2025-03-23 19:41:18,933 - werkzeug - INFO - 127.0.0.1 - - [23/Mar/2025 19:41:18] "GET /stats HTTP/1.1" 200 -
+2025-03-23 19:41:18,943 - shard_node - INFO - Getting shard statistics
+2025-03-23 19:41:18,944 - werkzeug - INFO - 127.0.0.1 - - [23/Mar/2025 19:41:18] "GET /stats HTTP/1.1" 200 -
+2025-03-23 19:41:20,047 - __main__ - INFO - Received request to add 34 vectors with shape (34, 512)
+2025-03-23 19:41:20,047 - __main__ - DEBUG - IDs provided with shape (34,)
+2025-03-23 19:41:20,047 - __main__ - DEBUG - Sample IDs: [125211 173057 455267  78843 309964]...
+2025-03-23 19:41:20,047 - __main__ - DEBUG - Calling shard.add_vectors
+2025-03-23 19:41:20,047 - shard_node - INFO - Adding vectors: shape=(34, 512), dtype=float32
+2025-03-23 19:41:20,047 - shard_node - INFO - Adding 34 vectors with IDs range: 125211 to 176701
+2025-03-23 19:41:20,047 - shard_node - INFO - Index now contains 1275 total vectors
+2025-03-23 19:41:20,047 - shard_node - INFO - Getting shard statistics
+2025-03-23 19:41:20,047 - __main__ - INFO - Shard stats after adding vectors: {'total_vectors': 1275, 'dimension': 512, 'index_type': 'FlatL2', 'metric': 'L2', 'memory_usage_mb': 2.5, 'next_id': 0, 'sample_ids': [357737, 171050, 158744, 543043, 214224], 'storage_path': 'data/shard_0', 'timestamp': 1742773280.047818}
+2025-03-23 19:41:20,048 - werkzeug - INFO - 127.0.0.1 - - [23/Mar/2025 19:41:20] "POST /add_vectors HTTP/1.1" 200 -
+2025-03-23 19:41:20,050 - shard_node - INFO - Getting shard statistics
+2025-03-23 19:41:20,051 - werkzeug - INFO - 127.0.0.1 - - [23/Mar/2025 19:41:20] "GET /stats HTTP/1.1" 200 -
+2025-03-23 19:41:20,059 - shard_node - INFO - Getting shard statistics
+2025-03-23 19:41:20,059 - werkzeug - INFO - 127.0.0.1 - - [23/Mar/2025 19:41:20] "GET /stats HTTP/1.1" 200 -
+2025-03-23 19:41:21,193 - __main__ - INFO - Received request to add 32 vectors with shape (32, 512)
+2025-03-23 19:41:21,193 - __main__ - DEBUG - IDs provided with shape (32,)
+2025-03-23 19:41:21,193 - __main__ - DEBUG - Sample IDs: [439593 484760 332845 283268 553776]...
+2025-03-23 19:41:21,193 - __main__ - DEBUG - Calling shard.add_vectors
+2025-03-23 19:41:21,193 - shard_node - INFO - Adding vectors: shape=(32, 512), dtype=float32
+2025-03-23 19:41:21,193 - shard_node - INFO - Adding 32 vectors with IDs range: 439593 to 476787
+2025-03-23 19:41:21,193 - shard_node - INFO - Index now contains 1307 total vectors
+2025-03-23 19:41:21,193 - shard_node - INFO - Getting shard statistics
+2025-03-23 19:41:21,194 - __main__ - INFO - Shard stats after adding vectors: {'total_vectors': 1307, 'dimension': 512, 'index_type': 'FlatL2', 'metric': 'L2', 'memory_usage_mb': 2.56, 'next_id': 0, 'sample_ids': [357737, 171050, 158744, 543043, 214224], 'storage_path': 'data/shard_0', 'timestamp': 1742773281.1940548}
+2025-03-23 19:41:21,194 - werkzeug - INFO - 127.0.0.1 - - [23/Mar/2025 19:41:21] "POST /add_vectors HTTP/1.1" 200 -
+2025-03-23 19:41:21,198 - shard_node - INFO - Getting shard statistics
+2025-03-23 19:41:21,199 - werkzeug - INFO - 127.0.0.1 - - [23/Mar/2025 19:41:21] "GET /stats HTTP/1.1" 200 -
+2025-03-23 19:41:21,207 - shard_node - INFO - Getting shard statistics
+2025-03-23 19:41:21,207 - werkzeug - INFO - 127.0.0.1 - - [23/Mar/2025 19:41:21] "GET /stats HTTP/1.1" 200 -
+2025-03-23 19:41:22,318 - __main__ - INFO - Received request to add 34 vectors with shape (34, 512)
+2025-03-23 19:41:22,318 - __main__ - DEBUG - IDs provided with shape (34,)
+2025-03-23 19:41:22,318 - __main__ - DEBUG - Sample IDs: [165518 551304 284762 456292 164969]...
+2025-03-23 19:41:22,318 - __main__ - DEBUG - Calling shard.add_vectors
+2025-03-23 19:41:22,318 - shard_node - INFO - Adding vectors: shape=(34, 512), dtype=float32
+2025-03-23 19:41:22,318 - shard_node - INFO - Adding 34 vectors with IDs range: 165518 to 350122
+2025-03-23 19:41:22,318 - shard_node - INFO - Index now contains 1341 total vectors
+2025-03-23 19:41:22,318 - shard_node - INFO - Getting shard statistics
+2025-03-23 19:41:22,319 - __main__ - INFO - Shard stats after adding vectors: {'total_vectors': 1341, 'dimension': 512, 'index_type': 'FlatL2', 'metric': 'L2', 'memory_usage_mb': 2.63, 'next_id': 0, 'sample_ids': [357737, 171050, 158744, 377239, 543043], 'storage_path': 'data/shard_0', 'timestamp': 1742773282.31915}
+2025-03-23 19:41:22,319 - werkzeug - INFO - 127.0.0.1 - - [23/Mar/2025 19:41:22] "POST /add_vectors HTTP/1.1" 200 -
+2025-03-23 19:41:22,322 - shard_node - INFO - Getting shard statistics
+2025-03-23 19:41:22,322 - werkzeug - INFO - 127.0.0.1 - - [23/Mar/2025 19:41:22] "GET /stats HTTP/1.1" 200 -
+2025-03-23 19:41:22,329 - shard_node - INFO - Getting shard statistics
+2025-03-23 19:41:22,330 - werkzeug - INFO - 127.0.0.1 - - [23/Mar/2025 19:41:22] "GET /stats HTTP/1.1" 200 -
+2025-03-23 19:41:23,448 - __main__ - INFO - Received request to add 40 vectors with shape (40, 512)
+2025-03-23 19:41:23,448 - __main__ - DEBUG - IDs provided with shape (40,)
+2025-03-23 19:41:23,448 - __main__ - DEBUG - Sample IDs: [408112 507235 534827 409542    785]...
+2025-03-23 19:41:23,448 - __main__ - DEBUG - Calling shard.add_vectors
+2025-03-23 19:41:23,448 - shard_node - INFO - Adding vectors: shape=(40, 512), dtype=float32
+2025-03-23 19:41:23,448 - shard_node - INFO - Adding 40 vectors with IDs range: 408112 to 309484
+2025-03-23 19:41:23,448 - shard_node - INFO - Index now contains 1381 total vectors
+2025-03-23 19:41:23,448 - shard_node - INFO - Getting shard statistics
+2025-03-23 19:41:23,448 - __main__ - INFO - Shard stats after adding vectors: {'total_vectors': 1381, 'dimension': 512, 'index_type': 'FlatL2', 'metric': 'L2', 'memory_usage_mb': 2.71, 'next_id': 0, 'sample_ids': [357737, 171050, 158744, 377239, 543043], 'storage_path': 'data/shard_0', 'timestamp': 1742773283.4487731}
+2025-03-23 19:41:23,449 - werkzeug - INFO - 127.0.0.1 - - [23/Mar/2025 19:41:23] "POST /add_vectors HTTP/1.1" 200 -
+2025-03-23 19:41:23,451 - shard_node - INFO - Getting shard statistics
+2025-03-23 19:41:23,451 - werkzeug - INFO - 127.0.0.1 - - [23/Mar/2025 19:41:23] "GET /stats HTTP/1.1" 200 -
+2025-03-23 19:41:23,459 - shard_node - INFO - Getting shard statistics
+2025-03-23 19:41:23,460 - werkzeug - INFO - 127.0.0.1 - - [23/Mar/2025 19:41:23] "GET /stats HTTP/1.1" 200 -
+2025-03-23 19:41:24,586 - __main__ - INFO - Received request to add 23 vectors with shape (23, 512)
+2025-03-23 19:41:24,586 - __main__ - DEBUG - IDs provided with shape (23,)
+2025-03-23 19:41:24,586 - __main__ - DEBUG - Sample IDs: [559956 335427  97994  18519 485424]...
+2025-03-23 19:41:24,586 - __main__ - DEBUG - Calling shard.add_vectors
+2025-03-23 19:41:24,586 - shard_node - INFO - Adding vectors: shape=(23, 512), dtype=float32
+2025-03-23 19:41:24,586 - shard_node - INFO - Adding 23 vectors with IDs range: 559956 to 21167
+2025-03-23 19:41:24,586 - shard_node - INFO - Index now contains 1404 total vectors
+2025-03-23 19:41:24,586 - shard_node - INFO - Getting shard statistics
+2025-03-23 19:41:24,586 - __main__ - INFO - Shard stats after adding vectors: {'total_vectors': 1404, 'dimension': 512, 'index_type': 'FlatL2', 'metric': 'L2', 'memory_usage_mb': 2.75, 'next_id': 0, 'sample_ids': [357737, 171050, 158744, 377239, 543043], 'storage_path': 'data/shard_0', 'timestamp': 1742773284.5869749}
+2025-03-23 19:41:24,587 - werkzeug - INFO - 127.0.0.1 - - [23/Mar/2025 19:41:24] "POST /add_vectors HTTP/1.1" 200 -
+2025-03-23 19:41:24,591 - shard_node - INFO - Getting shard statistics
+2025-03-23 19:41:24,592 - werkzeug - INFO - 127.0.0.1 - - [23/Mar/2025 19:41:24] "GET /stats HTTP/1.1" 200 -
+2025-03-23 19:41:24,599 - shard_node - INFO - Getting shard statistics
+2025-03-23 19:41:24,600 - werkzeug - INFO - 127.0.0.1 - - [23/Mar/2025 19:41:24] "GET /stats HTTP/1.1" 200 -
+2025-03-23 19:41:25,742 - __main__ - INFO - Received request to add 33 vectors with shape (33, 512)
+2025-03-23 19:41:25,743 - __main__ - DEBUG - IDs provided with shape (33,)
+2025-03-23 19:41:25,743 - __main__ - DEBUG - Sample IDs: [154705  52412 190753 183049 430048]...
+2025-03-23 19:41:25,743 - __main__ - DEBUG - Calling shard.add_vectors
+2025-03-23 19:41:25,743 - shard_node - INFO - Adding vectors: shape=(33, 512), dtype=float32
+2025-03-23 19:41:25,743 - shard_node - INFO - Adding 33 vectors with IDs range: 154705 to 533145
+2025-03-23 19:41:25,743 - shard_node - INFO - Index now contains 1437 total vectors
+2025-03-23 19:41:25,743 - shard_node - INFO - Getting shard statistics
+2025-03-23 19:41:25,743 - __main__ - INFO - Shard stats after adding vectors: {'total_vectors': 1437, 'dimension': 512, 'index_type': 'FlatL2', 'metric': 'L2', 'memory_usage_mb': 2.82, 'next_id': 0, 'sample_ids': [357737, 171050, 158744, 377239, 543043], 'storage_path': 'data/shard_0', 'timestamp': 1742773285.743735}
+2025-03-23 19:41:25,744 - werkzeug - INFO - 127.0.0.1 - - [23/Mar/2025 19:41:25] "POST /add_vectors HTTP/1.1" 200 -
+2025-03-23 19:41:25,748 - shard_node - INFO - Getting shard statistics
+2025-03-23 19:41:25,749 - werkzeug - INFO - 127.0.0.1 - - [23/Mar/2025 19:41:25] "GET /stats HTTP/1.1" 200 -
+2025-03-23 19:41:25,757 - shard_node - INFO - Getting shard statistics
+2025-03-23 19:41:25,757 - werkzeug - INFO - 127.0.0.1 - - [23/Mar/2025 19:41:25] "GET /stats HTTP/1.1" 200 -
+2025-03-23 19:41:26,859 - __main__ - INFO - Received request to add 36 vectors with shape (36, 512)
+2025-03-23 19:41:26,859 - __main__ - DEBUG - IDs provided with shape (36,)
+2025-03-23 19:41:26,859 - __main__ - DEBUG - Sample IDs: [515828   5600 302882 208363 235784]...
+2025-03-23 19:41:26,859 - __main__ - DEBUG - Calling shard.add_vectors
+2025-03-23 19:41:26,859 - shard_node - INFO - Adding vectors: shape=(36, 512), dtype=float32
+2025-03-23 19:41:26,859 - shard_node - INFO - Adding 36 vectors with IDs range: 515828 to 561366
+2025-03-23 19:41:26,859 - shard_node - INFO - Index now contains 1473 total vectors
+2025-03-23 19:41:26,859 - shard_node - INFO - Getting shard statistics
+2025-03-23 19:41:26,859 - __main__ - INFO - Shard stats after adding vectors: {'total_vectors': 1473, 'dimension': 512, 'index_type': 'FlatL2', 'metric': 'L2', 'memory_usage_mb': 2.89, 'next_id': 0, 'sample_ids': [357737, 171050, 158744, 377239, 543043], 'storage_path': 'data/shard_0', 'timestamp': 1742773286.8598359}
+2025-03-23 19:41:26,860 - werkzeug - INFO - 127.0.0.1 - - [23/Mar/2025 19:41:26] "POST /add_vectors HTTP/1.1" 200 -
+2025-03-23 19:41:26,862 - shard_node - INFO - Getting shard statistics
+2025-03-23 19:41:26,863 - werkzeug - INFO - 127.0.0.1 - - [23/Mar/2025 19:41:26] "GET /stats HTTP/1.1" 200 -
+2025-03-23 19:41:26,870 - shard_node - INFO - Getting shard statistics
+2025-03-23 19:41:26,871 - werkzeug - INFO - 127.0.0.1 - - [23/Mar/2025 19:41:26] "GET /stats HTTP/1.1" 200 -
+2025-03-23 19:41:27,998 - __main__ - INFO - Received request to add 40 vectors with shape (40, 512)
+2025-03-23 19:41:27,998 - __main__ - DEBUG - IDs provided with shape (40,)
+2025-03-23 19:41:27,998 - __main__ - DEBUG - Sample IDs: [452784 574810 376284 553511  88848]...
+2025-03-23 19:41:27,998 - __main__ - DEBUG - Calling shard.add_vectors
+2025-03-23 19:41:27,998 - shard_node - INFO - Adding vectors: shape=(40, 512), dtype=float32
+2025-03-23 19:41:27,998 - shard_node - INFO - Adding 40 vectors with IDs range: 452784 to 1503
+2025-03-23 19:41:27,998 - shard_node - INFO - Index now contains 1513 total vectors
+2025-03-23 19:41:27,998 - shard_node - INFO - Getting shard statistics
+2025-03-23 19:41:27,998 - __main__ - INFO - Shard stats after adding vectors: {'total_vectors': 1513, 'dimension': 512, 'index_type': 'FlatL2', 'metric': 'L2', 'memory_usage_mb': 2.97, 'next_id': 0, 'sample_ids': [357737, 171050, 158744, 377239, 543043], 'storage_path': 'data/shard_0', 'timestamp': 1742773287.9986382}
+2025-03-23 19:41:27,998 - werkzeug - INFO - 127.0.0.1 - - [23/Mar/2025 19:41:27] "POST /add_vectors HTTP/1.1" 200 -
+2025-03-23 19:41:28,000 - shard_node - INFO - Getting shard statistics
+2025-03-23 19:41:28,001 - werkzeug - INFO - 127.0.0.1 - - [23/Mar/2025 19:41:28] "GET /stats HTTP/1.1" 200 -
+2025-03-23 19:41:28,008 - shard_node - INFO - Getting shard statistics
+2025-03-23 19:41:28,008 - werkzeug - INFO - 127.0.0.1 - - [23/Mar/2025 19:41:28] "GET /stats HTTP/1.1" 200 -
+2025-03-23 19:41:29,131 - __main__ - INFO - Received request to add 28 vectors with shape (28, 512)
+2025-03-23 19:41:29,131 - __main__ - DEBUG - IDs provided with shape (28,)
+2025-03-23 19:41:29,131 - __main__ - DEBUG - Sample IDs: [344795 447789 439525  21604 411530]...
+2025-03-23 19:41:29,131 - __main__ - DEBUG - Calling shard.add_vectors
+2025-03-23 19:41:29,131 - shard_node - INFO - Adding vectors: shape=(28, 512), dtype=float32
+2025-03-23 19:41:29,131 - shard_node - INFO - Adding 28 vectors with IDs range: 344795 to 460929
+2025-03-23 19:41:29,131 - shard_node - INFO - Index now contains 1541 total vectors
+2025-03-23 19:41:29,131 - shard_node - INFO - Getting shard statistics
+2025-03-23 19:41:29,131 - __main__ - INFO - Shard stats after adding vectors: {'total_vectors': 1541, 'dimension': 512, 'index_type': 'FlatL2', 'metric': 'L2', 'memory_usage_mb': 3.02, 'next_id': 0, 'sample_ids': [357737, 171050, 158744, 377239, 543043], 'storage_path': 'data/shard_0', 'timestamp': 1742773289.131946}
+2025-03-23 19:41:29,132 - werkzeug - INFO - 127.0.0.1 - - [23/Mar/2025 19:41:29] "POST /add_vectors HTTP/1.1" 200 -
+2025-03-23 19:41:29,135 - shard_node - INFO - Getting shard statistics
+2025-03-23 19:41:29,135 - werkzeug - INFO - 127.0.0.1 - - [23/Mar/2025 19:41:29] "GET /stats HTTP/1.1" 200 -
+2025-03-23 19:41:29,143 - shard_node - INFO - Getting shard statistics
+2025-03-23 19:41:29,144 - werkzeug - INFO - 127.0.0.1 - - [23/Mar/2025 19:41:29] "GET /stats HTTP/1.1" 200 -
+2025-03-23 19:41:30,274 - __main__ - INFO - Received request to add 33 vectors with shape (33, 512)
+2025-03-23 19:41:30,275 - __main__ - DEBUG - IDs provided with shape (33,)
+2025-03-23 19:41:30,275 - __main__ - DEBUG - Sample IDs: [ 76416  23359 281754  50638 148739]...
+2025-03-23 19:41:30,275 - __main__ - DEBUG - Calling shard.add_vectors
+2025-03-23 19:41:30,275 - shard_node - INFO - Adding vectors: shape=(33, 512), dtype=float32
+2025-03-23 19:41:30,275 - shard_node - INFO - Adding 33 vectors with IDs range: 76416 to 167240
+2025-03-23 19:41:30,275 - shard_node - INFO - Index now contains 1574 total vectors
+2025-03-23 19:41:30,275 - shard_node - INFO - Getting shard statistics
+2025-03-23 19:41:30,275 - __main__ - INFO - Shard stats after adding vectors: {'total_vectors': 1574, 'dimension': 512, 'index_type': 'FlatL2', 'metric': 'L2', 'memory_usage_mb': 3.09, 'next_id': 0, 'sample_ids': [357737, 171050, 158744, 377239, 543043], 'storage_path': 'data/shard_0', 'timestamp': 1742773290.275423}
+2025-03-23 19:41:30,275 - werkzeug - INFO - 127.0.0.1 - - [23/Mar/2025 19:41:30] "POST /add_vectors HTTP/1.1" 200 -
+2025-03-23 19:41:30,278 - shard_node - INFO - Getting shard statistics
+2025-03-23 19:41:30,279 - werkzeug - INFO - 127.0.0.1 - - [23/Mar/2025 19:41:30] "GET /stats HTTP/1.1" 200 -
+2025-03-23 19:41:30,287 - shard_node - INFO - Getting shard statistics
+2025-03-23 19:41:30,287 - werkzeug - INFO - 127.0.0.1 - - [23/Mar/2025 19:41:30] "GET /stats HTTP/1.1" 200 -
+2025-03-23 19:41:31,389 - __main__ - INFO - Received request to add 36 vectors with shape (36, 512)
+2025-03-23 19:41:31,389 - __main__ - DEBUG - IDs provided with shape (36,)
+2025-03-23 19:41:31,389 - __main__ - DEBUG - Sample IDs: [509008 511647 112634 144300 172856]...
+2025-03-23 19:41:31,389 - __main__ - DEBUG - Calling shard.add_vectors
+2025-03-23 19:41:31,389 - shard_node - INFO - Adding vectors: shape=(36, 512), dtype=float32
+2025-03-23 19:41:31,389 - shard_node - INFO - Adding 36 vectors with IDs range: 509008 to 144706
+2025-03-23 19:41:31,389 - shard_node - INFO - Index now contains 1610 total vectors
+2025-03-23 19:41:31,389 - shard_node - INFO - Getting shard statistics
+2025-03-23 19:41:31,389 - __main__ - INFO - Shard stats after adding vectors: {'total_vectors': 1610, 'dimension': 512, 'index_type': 'FlatL2', 'metric': 'L2', 'memory_usage_mb': 3.16, 'next_id': 0, 'sample_ids': [357737, 171050, 158744, 377239, 543043], 'storage_path': 'data/shard_0', 'timestamp': 1742773291.3897228}
+2025-03-23 19:41:31,390 - werkzeug - INFO - 127.0.0.1 - - [23/Mar/2025 19:41:31] "POST /add_vectors HTTP/1.1" 200 -
+2025-03-23 19:41:31,392 - shard_node - INFO - Getting shard statistics
+2025-03-23 19:41:31,392 - werkzeug - INFO - 127.0.0.1 - - [23/Mar/2025 19:41:31] "GET /stats HTTP/1.1" 200 -
+2025-03-23 19:41:31,401 - shard_node - INFO - Getting shard statistics
+2025-03-23 19:41:31,401 - werkzeug - INFO - 127.0.0.1 - - [23/Mar/2025 19:41:31] "GET /stats HTTP/1.1" 200 -
+2025-03-23 19:41:32,516 - __main__ - INFO - Received request to add 34 vectors with shape (34, 512)
+2025-03-23 19:41:32,516 - __main__ - DEBUG - IDs provided with shape (34,)
+2025-03-23 19:41:32,516 - __main__ - DEBUG - Sample IDs: [280930 359937 181499 170474 255664]...
+2025-03-23 19:41:32,516 - __main__ - DEBUG - Calling shard.add_vectors
+2025-03-23 19:41:32,516 - shard_node - INFO - Adding vectors: shape=(34, 512), dtype=float32
+2025-03-23 19:41:32,516 - shard_node - INFO - Adding 34 vectors with IDs range: 280930 to 212895
+2025-03-23 19:41:32,516 - shard_node - INFO - Index now contains 1644 total vectors
+2025-03-23 19:41:32,516 - shard_node - INFO - Getting shard statistics
+2025-03-23 19:41:32,516 - __main__ - INFO - Shard stats after adding vectors: {'total_vectors': 1644, 'dimension': 512, 'index_type': 'FlatL2', 'metric': 'L2', 'memory_usage_mb': 3.22, 'next_id': 0, 'sample_ids': [357737, 171050, 158744, 377239, 543043], 'storage_path': 'data/shard_0', 'timestamp': 1742773292.516643}
+2025-03-23 19:41:32,516 - werkzeug - INFO - 127.0.0.1 - - [23/Mar/2025 19:41:32] "POST /add_vectors HTTP/1.1" 200 -
+2025-03-23 19:41:32,520 - shard_node - INFO - Getting shard statistics
+2025-03-23 19:41:32,520 - werkzeug - INFO - 127.0.0.1 - - [23/Mar/2025 19:41:32] "GET /stats HTTP/1.1" 200 -
+2025-03-23 19:41:32,528 - shard_node - INFO - Getting shard statistics
+2025-03-23 19:41:32,528 - werkzeug - INFO - 127.0.0.1 - - [23/Mar/2025 19:41:32] "GET /stats HTTP/1.1" 200 -
+2025-03-23 19:41:33,642 - __main__ - INFO - Received request to add 36 vectors with shape (36, 512)
+2025-03-23 19:41:33,642 - __main__ - DEBUG - IDs provided with shape (36,)
+2025-03-23 19:41:33,642 - __main__ - DEBUG - Sample IDs: [244379 351589 262631 224664  50149]...
+2025-03-23 19:41:33,642 - __main__ - DEBUG - Calling shard.add_vectors
+2025-03-23 19:41:33,642 - shard_node - INFO - Adding vectors: shape=(36, 512), dtype=float32
+2025-03-23 19:41:33,642 - shard_node - INFO - Adding 36 vectors with IDs range: 244379 to 474786
+2025-03-23 19:41:33,642 - shard_node - INFO - Index now contains 1680 total vectors
+2025-03-23 19:41:33,642 - shard_node - INFO - Getting shard statistics
+2025-03-23 19:41:33,643 - __main__ - INFO - Shard stats after adding vectors: {'total_vectors': 1680, 'dimension': 512, 'index_type': 'FlatL2', 'metric': 'L2', 'memory_usage_mb': 3.29, 'next_id': 0, 'sample_ids': [357737, 171050, 158744, 377239, 543043], 'storage_path': 'data/shard_0', 'timestamp': 1742773293.643032}
+2025-03-23 19:41:33,643 - werkzeug - INFO - 127.0.0.1 - - [23/Mar/2025 19:41:33] "POST /add_vectors HTTP/1.1" 200 -
+2025-03-23 19:41:33,645 - shard_node - INFO - Getting shard statistics
+2025-03-23 19:41:33,645 - werkzeug - INFO - 127.0.0.1 - - [23/Mar/2025 19:41:33] "GET /stats HTTP/1.1" 200 -
+2025-03-23 19:41:33,653 - shard_node - INFO - Getting shard statistics
+2025-03-23 19:41:33,653 - werkzeug - INFO - 127.0.0.1 - - [23/Mar/2025 19:41:33] "GET /stats HTTP/1.1" 200 -
+2025-03-23 19:41:34,782 - __main__ - INFO - Received request to add 37 vectors with shape (37, 512)
+2025-03-23 19:41:34,782 - __main__ - DEBUG - IDs provided with shape (37,)
+2025-03-23 19:41:34,782 - __main__ - DEBUG - Sample IDs: [565853   8690 535094 102356 494869]...
+2025-03-23 19:41:34,782 - __main__ - DEBUG - Calling shard.add_vectors
+2025-03-23 19:41:34,782 - shard_node - INFO - Adding vectors: shape=(37, 512), dtype=float32
+2025-03-23 19:41:34,782 - shard_node - INFO - Adding 37 vectors with IDs range: 565853 to 502599
+2025-03-23 19:41:34,782 - shard_node - INFO - Index now contains 1717 total vectors
+2025-03-23 19:41:34,782 - shard_node - INFO - Getting shard statistics
+2025-03-23 19:41:34,782 - __main__ - INFO - Shard stats after adding vectors: {'total_vectors': 1717, 'dimension': 512, 'index_type': 'FlatL2', 'metric': 'L2', 'memory_usage_mb': 3.37, 'next_id': 0, 'sample_ids': [357737, 171050, 158744, 377239, 543043], 'storage_path': 'data/shard_0', 'timestamp': 1742773294.782701}
+2025-03-23 19:41:34,782 - werkzeug - INFO - 127.0.0.1 - - [23/Mar/2025 19:41:34] "POST /add_vectors HTTP/1.1" 200 -
+2025-03-23 19:41:34,785 - shard_node - INFO - Getting shard statistics
+2025-03-23 19:41:34,785 - werkzeug - INFO - 127.0.0.1 - - [23/Mar/2025 19:41:34] "GET /stats HTTP/1.1" 200 -
+2025-03-23 19:41:34,793 - shard_node - INFO - Getting shard statistics
+2025-03-23 19:41:34,793 - werkzeug - INFO - 127.0.0.1 - - [23/Mar/2025 19:41:34] "GET /stats HTTP/1.1" 200 -
+2025-03-23 19:41:57,794 - __main__ - DEBUG - Received search request with query_vector shape=(1, 512), k=10
+2025-03-23 19:41:57,794 - __main__ - DEBUG - Calling shard.search
+2025-03-23 19:41:57,794 - shard_node - DEBUG - Starting search with query_vectors shape=(1, 512), k=10
+2025-03-23 19:41:57,795 - shard_node - DEBUG - Index has 1717 total vectors
+2025-03-23 19:41:57,795 - shard_node - DEBUG - Searching with adjusted k=10
+2025-03-23 19:41:57,796 - shard_node - DEBUG - Search results: distances shape=(1, 10), indices shape=(1, 10)
+2025-03-23 19:41:57,796 - shard_node - DEBUG - Distances: [[174.54027 184.19843 186.17422 189.02629 189.57101 209.95438 213.28305
+  215.89246 232.56555 239.72812]], Indices: [[342397 576031  96825 236308 118921 451714  38118 509014 327605  89078]]
+2025-03-23 19:41:57,796 - shard_node - DEBUG - Performed search with 1 query vectors, k=10
+2025-03-23 19:41:57,796 - __main__ - DEBUG - Search results: distances shape=(1, 10), indices shape=(1, 10)
+2025-03-23 19:41:57,797 - __main__ - DEBUG - Distances: [[174.54027 184.19843 186.17422 189.02629 189.57101 209.95438 213.28305
+  215.89246 232.56555 239.72812]], Indices: [[342397 576031  96825 236308 118921 451714  38118 509014 327605  89078]]
+2025-03-23 19:41:57,797 - __main__ - DEBUG - Returning search results: 1 items
+2025-03-23 19:41:57,797 - werkzeug - INFO - 127.0.0.1 - - [23/Mar/2025 19:41:57] "POST /search HTTP/1.1" 200 -
+2025-03-23 19:42:42,876 - __main__ - DEBUG - Received search request with query_vector shape=(1, 512), k=10
+2025-03-23 19:42:42,876 - __main__ - DEBUG - Calling shard.search
+2025-03-23 19:42:42,876 - shard_node - DEBUG - Starting search with query_vectors shape=(1, 512), k=10
+2025-03-23 19:42:42,877 - shard_node - DEBUG - Index has 1717 total vectors
+2025-03-23 19:42:42,877 - shard_node - DEBUG - Searching with adjusted k=10
+2025-03-23 19:42:42,879 - shard_node - DEBUG - Search results: distances shape=(1, 10), indices shape=(1, 10)
+2025-03-23 19:42:42,880 - shard_node - DEBUG - Distances: [[176.96954 179.12004 232.24524 236.0737  262.7195  267.74393 281.51917
+  283.35016 294.8568  296.14856]], Indices: [[105455 304396 455352 519491 382122  94157 519522 145591 409542 140658]]
+2025-03-23 19:42:42,880 - shard_node - DEBUG - Performed search with 1 query vectors, k=10
+2025-03-23 19:42:42,880 - __main__ - DEBUG - Search results: distances shape=(1, 10), indices shape=(1, 10)
+2025-03-23 19:42:42,880 - __main__ - DEBUG - Distances: [[176.96954 179.12004 232.24524 236.0737  262.7195  267.74393 281.51917
+  283.35016 294.8568  296.14856]], Indices: [[105455 304396 455352 519491 382122  94157 519522 145591 409542 140658]]
+2025-03-23 19:42:42,880 - __main__ - DEBUG - Returning search results: 1 items
+2025-03-23 19:42:42,881 - werkzeug - INFO - 127.0.0.1 - - [23/Mar/2025 19:42:42] "POST /search HTTP/1.1" 200 -
+2025-03-23 19:43:42,971 - __main__ - DEBUG - Received search request with query_vector shape=(1, 512), k=1
+2025-03-23 19:43:42,972 - __main__ - DEBUG - Calling shard.search
+2025-03-23 19:43:42,972 - shard_node - DEBUG - Starting search with query_vectors shape=(1, 512), k=1
+2025-03-23 19:43:42,972 - shard_node - DEBUG - Index has 1717 total vectors
+2025-03-23 19:43:42,972 - shard_node - DEBUG - Searching with adjusted k=1
+2025-03-23 19:43:42,973 - shard_node - DEBUG - Search results: distances shape=(1, 1), indices shape=(1, 1)
+2025-03-23 19:43:42,974 - shard_node - DEBUG - Distances: [[6.05022]], Indices: [[379800]]
+2025-03-23 19:43:42,974 - shard_node - DEBUG - Performed search with 1 query vectors, k=1
+2025-03-23 19:43:42,974 - __main__ - DEBUG - Search results: distances shape=(1, 1), indices shape=(1, 1)
+2025-03-23 19:43:42,974 - __main__ - DEBUG - Distances: [[6.05022]], Indices: [[379800]]
+2025-03-23 19:43:42,974 - __main__ - DEBUG - Returning search results: 1 items
+2025-03-23 19:43:42,975 - werkzeug - INFO - 127.0.0.1 - - [23/Mar/2025 19:43:42] "POST /search HTTP/1.1" 200 -
+2025-03-23 19:43:43,026 - __main__ - DEBUG - Received search request with query_vector shape=(1, 512), k=1
+2025-03-23 19:43:43,026 - __main__ - DEBUG - Calling shard.search
+2025-03-23 19:43:43,026 - shard_node - DEBUG - Starting search with query_vectors shape=(1, 512), k=1
+2025-03-23 19:43:43,026 - shard_node - DEBUG - Index has 1717 total vectors
+2025-03-23 19:43:43,026 - shard_node - DEBUG - Searching with adjusted k=1
+2025-03-23 19:43:43,027 - shard_node - DEBUG - Search results: distances shape=(1, 1), indices shape=(1, 1)
+2025-03-23 19:43:43,027 - shard_node - DEBUG - Distances: [[552.5787]], Indices: [[269196]]
+2025-03-23 19:43:43,027 - shard_node - DEBUG - Performed search with 1 query vectors, k=1
+2025-03-23 19:43:43,027 - __main__ - DEBUG - Search results: distances shape=(1, 1), indices shape=(1, 1)
+2025-03-23 19:43:43,027 - __main__ - DEBUG - Distances: [[552.5787]], Indices: [[269196]]
+2025-03-23 19:43:43,028 - __main__ - DEBUG - Returning search results: 1 items
+2025-03-23 19:43:43,028 - werkzeug - INFO - 127.0.0.1 - - [23/Mar/2025 19:43:43] "POST /search HTTP/1.1" 200 -
+2025-03-23 19:43:43,043 - __main__ - DEBUG - Received search request with query_vector shape=(1, 512), k=1
+2025-03-23 19:43:43,043 - __main__ - DEBUG - Calling shard.search
+2025-03-23 19:43:43,043 - shard_node - DEBUG - Starting search with query_vectors shape=(1, 512), k=1
+2025-03-23 19:43:43,043 - shard_node - DEBUG - Index has 1717 total vectors
+2025-03-23 19:43:43,043 - shard_node - DEBUG - Searching with adjusted k=1
+2025-03-23 19:43:43,044 - shard_node - DEBUG - Search results: distances shape=(1, 1), indices shape=(1, 1)
+2025-03-23 19:43:43,044 - shard_node - DEBUG - Distances: [[174.938]], Indices: [[577149]]
+2025-03-23 19:43:43,044 - shard_node - DEBUG - Performed search with 1 query vectors, k=1
+2025-03-23 19:43:43,045 - __main__ - DEBUG - Search results: distances shape=(1, 1), indices shape=(1, 1)
+2025-03-23 19:43:43,045 - __main__ - DEBUG - Distances: [[174.938]], Indices: [[577149]]
+2025-03-23 19:43:43,045 - __main__ - DEBUG - Returning search results: 1 items
+2025-03-23 19:43:43,045 - werkzeug - INFO - 127.0.0.1 - - [23/Mar/2025 19:43:43] "POST /search HTTP/1.1" 200 -
+2025-03-23 19:43:43,060 - __main__ - DEBUG - Received search request with query_vector shape=(1, 512), k=5
+2025-03-23 19:43:43,060 - __main__ - DEBUG - Calling shard.search
+2025-03-23 19:43:43,060 - shard_node - DEBUG - Starting search with query_vectors shape=(1, 512), k=5
+2025-03-23 19:43:43,060 - shard_node - DEBUG - Index has 1717 total vectors
+2025-03-23 19:43:43,061 - shard_node - DEBUG - Searching with adjusted k=5
+2025-03-23 19:43:43,061 - shard_node - DEBUG - Search results: distances shape=(1, 5), indices shape=(1, 5)
+2025-03-23 19:43:43,061 - shard_node - DEBUG - Distances: [[  6.05022 182.72668 197.43668 203.05563 213.77269]], Indices: [[379800  30675 133567 493566 477623]]
+2025-03-23 19:43:43,061 - shard_node - DEBUG - Performed search with 1 query vectors, k=5
+2025-03-23 19:43:43,062 - __main__ - DEBUG - Search results: distances shape=(1, 5), indices shape=(1, 5)
+2025-03-23 19:43:43,062 - __main__ - DEBUG - Distances: [[  6.05022 182.72668 197.43668 203.05563 213.77269]], Indices: [[379800  30675 133567 493566 477623]]
+2025-03-23 19:43:43,062 - __main__ - DEBUG - Returning search results: 1 items
+2025-03-23 19:43:43,062 - werkzeug - INFO - 127.0.0.1 - - [23/Mar/2025 19:43:43] "POST /search HTTP/1.1" 200 -
+2025-03-23 19:43:43,114 - __main__ - DEBUG - Received search request with query_vector shape=(1, 512), k=5
+2025-03-23 19:43:43,115 - __main__ - DEBUG - Calling shard.search
+2025-03-23 19:43:43,115 - shard_node - DEBUG - Starting search with query_vectors shape=(1, 512), k=5
+2025-03-23 19:43:43,115 - shard_node - DEBUG - Index has 1717 total vectors
+2025-03-23 19:43:43,115 - shard_node - DEBUG - Searching with adjusted k=5
+2025-03-23 19:43:43,115 - shard_node - DEBUG - Search results: distances shape=(1, 5), indices shape=(1, 5)
+2025-03-23 19:43:43,120 - shard_node - DEBUG - Distances: [[552.5787  553.4232  571.6914  572.98303 585.573  ]], Indices: [[269196  20247 523033 471756 404805]]
+2025-03-23 19:43:43,120 - shard_node - DEBUG - Performed search with 1 query vectors, k=5
+2025-03-23 19:43:43,120 - __main__ - DEBUG - Search results: distances shape=(1, 5), indices shape=(1, 5)
+2025-03-23 19:43:43,120 - __main__ - DEBUG - Distances: [[552.5787  553.4232  571.6914  572.98303 585.573  ]], Indices: [[269196  20247 523033 471756 404805]]
+2025-03-23 19:43:43,120 - __main__ - DEBUG - Returning search results: 1 items
+2025-03-23 19:43:43,120 - werkzeug - INFO - 127.0.0.1 - - [23/Mar/2025 19:43:43] "POST /search HTTP/1.1" 200 -
+2025-03-23 19:43:43,135 - __main__ - DEBUG - Received search request with query_vector shape=(1, 512), k=5
+2025-03-23 19:43:43,135 - __main__ - DEBUG - Calling shard.search
+2025-03-23 19:43:43,135 - shard_node - DEBUG - Starting search with query_vectors shape=(1, 512), k=5
+2025-03-23 19:43:43,135 - shard_node - DEBUG - Index has 1717 total vectors
+2025-03-23 19:43:43,135 - shard_node - DEBUG - Searching with adjusted k=5
+2025-03-23 19:43:43,136 - shard_node - DEBUG - Search results: distances shape=(1, 5), indices shape=(1, 5)
+2025-03-23 19:43:43,136 - shard_node - DEBUG - Distances: [[174.938   177.3052  216.12683 221.31491 233.08542]], Indices: [[577149 501243  54123 159311 484296]]
+2025-03-23 19:43:43,136 - shard_node - DEBUG - Performed search with 1 query vectors, k=5
+2025-03-23 19:43:43,136 - __main__ - DEBUG - Search results: distances shape=(1, 5), indices shape=(1, 5)
+2025-03-23 19:43:43,137 - __main__ - DEBUG - Distances: [[174.938   177.3052  216.12683 221.31491 233.08542]], Indices: [[577149 501243  54123 159311 484296]]
+2025-03-23 19:43:43,137 - __main__ - DEBUG - Returning search results: 1 items
+2025-03-23 19:43:43,137 - werkzeug - INFO - 127.0.0.1 - - [23/Mar/2025 19:43:43] "POST /search HTTP/1.1" 200 -
+2025-03-23 19:43:43,156 - __main__ - DEBUG - Received search request with query_vector shape=(1, 512), k=10
+2025-03-23 19:43:43,156 - __main__ - DEBUG - Calling shard.search
+2025-03-23 19:43:43,156 - shard_node - DEBUG - Starting search with query_vectors shape=(1, 512), k=10
+2025-03-23 19:43:43,156 - shard_node - DEBUG - Index has 1717 total vectors
+2025-03-23 19:43:43,156 - shard_node - DEBUG - Searching with adjusted k=10
+2025-03-23 19:43:43,157 - shard_node - DEBUG - Search results: distances shape=(1, 10), indices shape=(1, 10)
+2025-03-23 19:43:43,157 - shard_node - DEBUG - Distances: [[  6.05022 182.72668 197.43668 203.05563 213.77269 224.7215  231.47867
+  246.13876 246.60999 252.28125]], Indices: [[379800  30675 133567 493566 477623 439593 241297 256195  60090 440508]]
+2025-03-23 19:43:43,157 - shard_node - DEBUG - Performed search with 1 query vectors, k=10
+2025-03-23 19:43:43,157 - __main__ - DEBUG - Search results: distances shape=(1, 10), indices shape=(1, 10)
+2025-03-23 19:43:43,158 - __main__ - DEBUG - Distances: [[  6.05022 182.72668 197.43668 203.05563 213.77269 224.7215  231.47867
+  246.13876 246.60999 252.28125]], Indices: [[379800  30675 133567 493566 477623 439593 241297 256195  60090 440508]]
+2025-03-23 19:43:43,158 - __main__ - DEBUG - Returning search results: 1 items
+2025-03-23 19:43:43,158 - werkzeug - INFO - 127.0.0.1 - - [23/Mar/2025 19:43:43] "POST /search HTTP/1.1" 200 -
+2025-03-23 19:43:43,182 - __main__ - DEBUG - Received search request with query_vector shape=(1, 512), k=10
+2025-03-23 19:43:43,182 - __main__ - DEBUG - Calling shard.search
+2025-03-23 19:43:43,182 - shard_node - DEBUG - Starting search with query_vectors shape=(1, 512), k=10
+2025-03-23 19:43:43,182 - shard_node - DEBUG - Index has 1717 total vectors
+2025-03-23 19:43:43,182 - shard_node - DEBUG - Searching with adjusted k=10
+2025-03-23 19:43:43,182 - shard_node - DEBUG - Search results: distances shape=(1, 10), indices shape=(1, 10)
+2025-03-23 19:43:43,182 - shard_node - DEBUG - Distances: [[552.5787  553.4232  571.6914  572.98303 585.573   593.6045  594.8322
+  596.02747 598.80505 612.6244 ]], Indices: [[269196  20247 523033 471756 404805   2261 209829 191672 482735 119088]]
+2025-03-23 19:43:43,182 - shard_node - DEBUG - Performed search with 1 query vectors, k=10
+2025-03-23 19:43:43,182 - __main__ - DEBUG - Search results: distances shape=(1, 10), indices shape=(1, 10)
+2025-03-23 19:43:43,183 - __main__ - DEBUG - Distances: [[552.5787  553.4232  571.6914  572.98303 585.573   593.6045  594.8322
+  596.02747 598.80505 612.6244 ]], Indices: [[269196  20247 523033 471756 404805   2261 209829 191672 482735 119088]]
+2025-03-23 19:43:43,183 - __main__ - DEBUG - Returning search results: 1 items
+2025-03-23 19:43:43,183 - werkzeug - INFO - 127.0.0.1 - - [23/Mar/2025 19:43:43] "POST /search HTTP/1.1" 200 -
+2025-03-23 19:43:43,189 - __main__ - DEBUG - Received search request with query_vector shape=(1, 512), k=10
+2025-03-23 19:43:43,189 - __main__ - DEBUG - Calling shard.search
+2025-03-23 19:43:43,189 - shard_node - DEBUG - Starting search with query_vectors shape=(1, 512), k=10
+2025-03-23 19:43:43,189 - shard_node - DEBUG - Index has 1717 total vectors
+2025-03-23 19:43:43,190 - shard_node - DEBUG - Searching with adjusted k=10
+2025-03-23 19:43:43,190 - shard_node - DEBUG - Search results: distances shape=(1, 10), indices shape=(1, 10)
+2025-03-23 19:43:43,190 - shard_node - DEBUG - Distances: [[174.938   177.3052  216.12683 221.31491 233.08542 261.7019  262.1899
+  262.27606 269.32043 292.8341 ]], Indices: [[577149 501243  54123 159311 484296 125211 201676 378453 320632  52462]]
+2025-03-23 19:43:43,190 - shard_node - DEBUG - Performed search with 1 query vectors, k=10
+2025-03-23 19:43:43,190 - __main__ - DEBUG - Search results: distances shape=(1, 10), indices shape=(1, 10)
+2025-03-23 19:43:43,190 - __main__ - DEBUG - Distances: [[174.938   177.3052  216.12683 221.31491 233.08542 261.7019  262.1899
+  262.27606 269.32043 292.8341 ]], Indices: [[577149 501243  54123 159311 484296 125211 201676 378453 320632  52462]]
+2025-03-23 19:43:43,190 - __main__ - DEBUG - Returning search results: 1 items
+2025-03-23 19:43:43,190 - werkzeug - INFO - 127.0.0.1 - - [23/Mar/2025 19:43:43] "POST /search HTTP/1.1" 200 -
+2025-03-23 19:43:43,198 - __main__ - DEBUG - Received search request with query_vector shape=(1, 512), k=50
+2025-03-23 19:43:43,198 - __main__ - DEBUG - Calling shard.search
+2025-03-23 19:43:43,198 - shard_node - DEBUG - Starting search with query_vectors shape=(1, 512), k=50
+2025-03-23 19:43:43,198 - shard_node - DEBUG - Index has 1717 total vectors
+2025-03-23 19:43:43,198 - shard_node - DEBUG - Searching with adjusted k=50
+2025-03-23 19:43:43,198 - shard_node - DEBUG - Search results: distances shape=(1, 50), indices shape=(1, 50)
+2025-03-23 19:43:43,198 - shard_node - DEBUG - Distances: [[  6.05022 182.72668 197.43668 203.05563 213.77269 224.7215  231.47867
+  246.13876 246.60999 252.28125 252.76807 252.86325 254.14694 255.91751
+  259.08762 259.67444 261.52484 267.1164  269.86163 276.95203 277.2027
+  283.43927 283.4558  294.4889  297.87964 298.8685  304.78812 309.72485
+  311.57867 313.5284  314.1707  316.96432 318.3319  327.81516 328.3133
+  328.78125 331.55234 333.74872 335.89713 338.88937 339.1815  341.83734
+  342.09406 343.83948 347.00104 353.07245 356.5357  358.24707 359.89877
+  364.48785]], Indices: [[379800  30675 133567 493566 477623 439593 241297 256195  60090 440508
+  206994  33109  90155 566524 368038 482585 519338 225946 431896 539143
+  419096 201148 134722 275727 200162  39670 217400 448410 146825 232538
+  323751 115118 128051 180188 558421 440617 151857 579818  52007 303863
+  363072 177893  82085 287874 494863 311909 231169 578967  90208 572303]]
+2025-03-23 19:43:43,198 - shard_node - DEBUG - Performed search with 1 query vectors, k=50
+2025-03-23 19:43:43,198 - __main__ - DEBUG - Search results: distances shape=(1, 50), indices shape=(1, 50)
+2025-03-23 19:43:43,199 - __main__ - DEBUG - Distances: [[  6.05022 182.72668 197.43668 203.05563 213.77269 224.7215  231.47867
+  246.13876 246.60999 252.28125 252.76807 252.86325 254.14694 255.91751
+  259.08762 259.67444 261.52484 267.1164  269.86163 276.95203 277.2027
+  283.43927 283.4558  294.4889  297.87964 298.8685  304.78812 309.72485
+  311.57867 313.5284  314.1707  316.96432 318.3319  327.81516 328.3133
+  328.78125 331.55234 333.74872 335.89713 338.88937 339.1815  341.83734
+  342.09406 343.83948 347.00104 353.07245 356.5357  358.24707 359.89877
+  364.48785]], Indices: [[379800  30675 133567 493566 477623 439593 241297 256195  60090 440508
+  206994  33109  90155 566524 368038 482585 519338 225946 431896 539143
+  419096 201148 134722 275727 200162  39670 217400 448410 146825 232538
+  323751 115118 128051 180188 558421 440617 151857 579818  52007 303863
+  363072 177893  82085 287874 494863 311909 231169 578967  90208 572303]]
+2025-03-23 19:43:43,199 - __main__ - DEBUG - Returning search results: 1 items
+2025-03-23 19:43:43,199 - werkzeug - INFO - 127.0.0.1 - - [23/Mar/2025 19:43:43] "POST /search HTTP/1.1" 200 -
+2025-03-23 19:43:43,226 - __main__ - DEBUG - Received search request with query_vector shape=(1, 512), k=50
+2025-03-23 19:43:43,226 - __main__ - DEBUG - Calling shard.search
+2025-03-23 19:43:43,226 - shard_node - DEBUG - Starting search with query_vectors shape=(1, 512), k=50
+2025-03-23 19:43:43,226 - shard_node - DEBUG - Index has 1717 total vectors
+2025-03-23 19:43:43,226 - shard_node - DEBUG - Searching with adjusted k=50
+2025-03-23 19:43:43,227 - shard_node - DEBUG - Search results: distances shape=(1, 50), indices shape=(1, 50)
+2025-03-23 19:43:43,227 - shard_node - DEBUG - Distances: [[552.5787  553.4232  571.6914  572.98303 585.573   593.6045  594.8322
+  596.02747 598.80505 612.6244  622.0532  622.62067 624.9065  634.085
+  638.0795  642.4203  645.184   651.79065 656.2398  657.0089  658.0011
+  660.942   663.69946 664.6149  665.3942  667.43555 669.25824 680.85864
+  681.4298  685.7575  688.29663 691.137   691.6371  691.85925 696.7086
+  698.87787 702.85406 703.86    706.0446  708.1591  711.11365 711.7776
+  712.885   718.15656 722.6549  723.6399  725.828   729.0948  731.4262
+  732.01544]], Indices: [[269196  20247 523033 471756 404805   2261 209829 191672 482735 119088
+  377575  12062 330396 572517 547519 205776 148739 236914 516318  50638
+   43435 402992 437331 460927 270122 465180 220584 248334 308476 331075
+  417465  82715 577959 561223 441286 272148 108503 232692  29984 248810
+  364322 396863 220858  14831 556765 314294  45090 341196 230166  32887]]
+2025-03-23 19:43:43,227 - shard_node - DEBUG - Performed search with 1 query vectors, k=50
+2025-03-23 19:43:43,227 - __main__ - DEBUG - Search results: distances shape=(1, 50), indices shape=(1, 50)
+2025-03-23 19:43:43,227 - __main__ - DEBUG - Distances: [[552.5787  553.4232  571.6914  572.98303 585.573   593.6045  594.8322
+  596.02747 598.80505 612.6244  622.0532  622.62067 624.9065  634.085
+  638.0795  642.4203  645.184   651.79065 656.2398  657.0089  658.0011
+  660.942   663.69946 664.6149  665.3942  667.43555 669.25824 680.85864
+  681.4298  685.7575  688.29663 691.137   691.6371  691.85925 696.7086
+  698.87787 702.85406 703.86    706.0446  708.1591  711.11365 711.7776
+  712.885   718.15656 722.6549  723.6399  725.828   729.0948  731.4262
+  732.01544]], Indices: [[269196  20247 523033 471756 404805   2261 209829 191672 482735 119088
+  377575  12062 330396 572517 547519 205776 148739 236914 516318  50638
+   43435 402992 437331 460927 270122 465180 220584 248334 308476 331075
+  417465  82715 577959 561223 441286 272148 108503 232692  29984 248810
+  364322 396863 220858  14831 556765 314294  45090 341196 230166  32887]]
+2025-03-23 19:43:43,227 - __main__ - DEBUG - Returning search results: 1 items
+2025-03-23 19:43:43,227 - werkzeug - INFO - 127.0.0.1 - - [23/Mar/2025 19:43:43] "POST /search HTTP/1.1" 200 -
+2025-03-23 19:43:43,236 - __main__ - DEBUG - Received search request with query_vector shape=(1, 512), k=50
+2025-03-23 19:43:43,236 - __main__ - DEBUG - Calling shard.search
+2025-03-23 19:43:43,236 - shard_node - DEBUG - Starting search with query_vectors shape=(1, 512), k=50
+2025-03-23 19:43:43,236 - shard_node - DEBUG - Index has 1717 total vectors
+2025-03-23 19:43:43,236 - shard_node - DEBUG - Searching with adjusted k=50
+2025-03-23 19:43:43,236 - shard_node - DEBUG - Search results: distances shape=(1, 50), indices shape=(1, 50)
+2025-03-23 19:43:43,237 - shard_node - DEBUG - Distances: [[174.938   177.3052  216.12683 221.31491 233.08542 261.7019  262.1899
+  262.27606 269.32043 292.8341  294.80725 298.24377 309.18375 317.48074
+  322.12903 334.96072 338.32123 348.18146 354.47015 376.12112 430.74503
+  433.3462  436.18066 512.3354  562.9888  573.7252  606.90735 610.5836
+  616.6947  618.6112  627.9529  628.02277 641.15857 641.8284  643.93646
+  647.47876 650.91003 658.866   662.1173  665.67365 667.3265  671.1395
+  673.91064 676.34827 676.8169  678.1864  687.83295 691.7131  699.83234
+  704.4606 ]], Indices: [[577149 501243  54123 159311 484296 125211 201676 378453 320632  52462
+   31269 516316 122969  20059  38825 509656 491613 215245  25139  11760
+    1818 116589 377497 159977 222235 248810   7108 359781 445675 166664
+  162543 259382 237864 396863 155571 314294 369037 289741 112634 356261
+  134689 480842 514797  88250 519208 158945  80274 329447 375763 207306]]
+2025-03-23 19:43:43,237 - shard_node - DEBUG - Performed search with 1 query vectors, k=50
+2025-03-23 19:43:43,237 - __main__ - DEBUG - Search results: distances shape=(1, 50), indices shape=(1, 50)
+2025-03-23 19:43:43,237 - __main__ - DEBUG - Distances: [[174.938   177.3052  216.12683 221.31491 233.08542 261.7019  262.1899
+  262.27606 269.32043 292.8341  294.80725 298.24377 309.18375 317.48074
+  322.12903 334.96072 338.32123 348.18146 354.47015 376.12112 430.74503
+  433.3462  436.18066 512.3354  562.9888  573.7252  606.90735 610.5836
+  616.6947  618.6112  627.9529  628.02277 641.15857 641.8284  643.93646
+  647.47876 650.91003 658.866   662.1173  665.67365 667.3265  671.1395
+  673.91064 676.34827 676.8169  678.1864  687.83295 691.7131  699.83234
+  704.4606 ]], Indices: [[577149 501243  54123 159311 484296 125211 201676 378453 320632  52462
+   31269 516316 122969  20059  38825 509656 491613 215245  25139  11760
+    1818 116589 377497 159977 222235 248810   7108 359781 445675 166664
+  162543 259382 237864 396863 155571 314294 369037 289741 112634 356261
+  134689 480842 514797  88250 519208 158945  80274 329447 375763 207306]]
+2025-03-23 19:43:43,237 - __main__ - DEBUG - Returning search results: 1 items
+2025-03-23 19:43:43,237 - werkzeug - INFO - 127.0.0.1 - - [23/Mar/2025 19:43:43] "POST /search HTTP/1.1" 200 -
+2025-03-23 19:43:43,245 - __main__ - DEBUG - Received search request with query_vector shape=(1, 512), k=100
+2025-03-23 19:43:43,245 - __main__ - DEBUG - Calling shard.search
+2025-03-23 19:43:43,245 - shard_node - DEBUG - Starting search with query_vectors shape=(1, 512), k=100
+2025-03-23 19:43:43,245 - shard_node - DEBUG - Index has 1717 total vectors
+2025-03-23 19:43:43,245 - shard_node - DEBUG - Searching with adjusted k=100
+2025-03-23 19:43:43,246 - shard_node - DEBUG - Search results: distances shape=(1, 100), indices shape=(1, 100)
+2025-03-23 19:43:43,247 - shard_node - DEBUG - Distances: [[  6.05022 182.72668 197.43668 203.05563 213.77269 224.7215  231.47867
+  246.13876 246.60999 252.28125 252.76807 252.86325 254.14694 255.91751
+  259.08762 259.67444 261.52484 267.1164  269.86163 276.95203 277.2027
+  283.43927 283.4558  294.4889  297.87964 298.8685  304.78812 309.72485
+  311.57867 313.5284  314.1707  316.96432 318.3319  327.81516 328.3133
+  328.78125 331.55234 333.74872 335.89713 338.88937 339.1815  341.83734
+  342.09406 343.83948 347.00104 353.07245 356.5357  358.24707 359.89877
+  364.48785 364.95093 367.6333  372.06683 376.81662 378.53195 380.89282
+  384.06537 385.115   386.77664 392.1037  392.19583 394.5158  394.60315
+  397.662   397.94135 398.86557 399.64722 399.96063 400.7917  404.4438
+  408.84387 410.23294 412.313   413.86328 423.6315  426.6759  428.3296
+  428.43796 430.3554  430.50433 431.6275  435.13934 439.6925  440.44803
+  441.10492 442.87463 443.73206 445.47586 447.39914 447.5108  448.2539
+  450.04944 450.1488  450.18787 451.75592 452.00208 453.05368 454.5199
+  456.2832  457.99753]], Indices: [[379800  30675 133567 493566 477623 439593 241297 256195  60090 440508
+  206994  33109  90155 566524 368038 482585 519338 225946 431896 539143
+  419096 201148 134722 275727 200162  39670 217400 448410 146825 232538
+  323751 115118 128051 180188 558421 440617 151857 579818  52007 303863
+  363072 177893  82085 287874 494863 311909 231169 578967  90208 572303
+  479030 159684 499775  17627 542856 276720 296224 436738 578093 124798
+   89556 458109 531036 396338 130566 184400  82846 338625 133000 359937
+  566758 512564 147725 543043 393093 500423 287291  76547 165039 393226
+  482978 534673  14473 395801 203294 372317 280710 323828 226802  50165
+  183246   1584 336232 530466 569565  86220 227399 213605 133819 553776]]
+2025-03-23 19:43:43,247 - shard_node - DEBUG - Performed search with 1 query vectors, k=100
+2025-03-23 19:43:43,247 - __main__ - DEBUG - Search results: distances shape=(1, 100), indices shape=(1, 100)
+2025-03-23 19:43:43,248 - __main__ - DEBUG - Distances: [[  6.05022 182.72668 197.43668 203.05563 213.77269 224.7215  231.47867
+  246.13876 246.60999 252.28125 252.76807 252.86325 254.14694 255.91751
+  259.08762 259.67444 261.52484 267.1164  269.86163 276.95203 277.2027
+  283.43927 283.4558  294.4889  297.87964 298.8685  304.78812 309.72485
+  311.57867 313.5284  314.1707  316.96432 318.3319  327.81516 328.3133
+  328.78125 331.55234 333.74872 335.89713 338.88937 339.1815  341.83734
+  342.09406 343.83948 347.00104 353.07245 356.5357  358.24707 359.89877
+  364.48785 364.95093 367.6333  372.06683 376.81662 378.53195 380.89282
+  384.06537 385.115   386.77664 392.1037  392.19583 394.5158  394.60315
+  397.662   397.94135 398.86557 399.64722 399.96063 400.7917  404.4438
+  408.84387 410.23294 412.313   413.86328 423.6315  426.6759  428.3296
+  428.43796 430.3554  430.50433 431.6275  435.13934 439.6925  440.44803
+  441.10492 442.87463 443.73206 445.47586 447.39914 447.5108  448.2539
+  450.04944 450.1488  450.18787 451.75592 452.00208 453.05368 454.5199
+  456.2832  457.99753]], Indices: [[379800  30675 133567 493566 477623 439593 241297 256195  60090 440508
+  206994  33109  90155 566524 368038 482585 519338 225946 431896 539143
+  419096 201148 134722 275727 200162  39670 217400 448410 146825 232538
+  323751 115118 128051 180188 558421 440617 151857 579818  52007 303863
+  363072 177893  82085 287874 494863 311909 231169 578967  90208 572303
+  479030 159684 499775  17627 542856 276720 296224 436738 578093 124798
+   89556 458109 531036 396338 130566 184400  82846 338625 133000 359937
+  566758 512564 147725 543043 393093 500423 287291  76547 165039 393226
+  482978 534673  14473 395801 203294 372317 280710 323828 226802  50165
+  183246   1584 336232 530466 569565  86220 227399 213605 133819 553776]]
+2025-03-23 19:43:43,248 - __main__ - DEBUG - Returning search results: 1 items
+2025-03-23 19:43:43,248 - werkzeug - INFO - 127.0.0.1 - - [23/Mar/2025 19:43:43] "POST /search HTTP/1.1" 200 -
+2025-03-23 19:43:43,291 - __main__ - DEBUG - Received search request with query_vector shape=(1, 512), k=100
+2025-03-23 19:43:43,291 - __main__ - DEBUG - Calling shard.search
+2025-03-23 19:43:43,291 - shard_node - DEBUG - Starting search with query_vectors shape=(1, 512), k=100
+2025-03-23 19:43:43,291 - shard_node - DEBUG - Index has 1717 total vectors
+2025-03-23 19:43:43,291 - shard_node - DEBUG - Searching with adjusted k=100
+2025-03-23 19:43:43,291 - shard_node - DEBUG - Search results: distances shape=(1, 100), indices shape=(1, 100)
+2025-03-23 19:43:43,293 - shard_node - DEBUG - Distances: [[552.5787  553.4232  571.6914  572.98303 585.573   593.6045  594.8322
+  596.02747 598.80505 612.6244  622.0532  622.62067 624.9065  634.085
+  638.0795  642.4203  645.184   651.79065 656.2398  657.0089  658.0011
+  660.942   663.69946 664.6149  665.3942  667.43555 669.25824 680.85864
+  681.4298  685.7575  688.29663 691.137   691.6371  691.85925 696.7086
+  698.87787 702.85406 703.86    706.0446  708.1591  711.11365 711.7776
+  712.885   718.15656 722.6549  723.6399  725.828   729.0948  731.4262
+  732.01544 732.29297 733.933   736.3909  738.88104 739.9562  741.1216
+  741.96155 742.6798  743.4613  743.48456 745.0979  745.6666  747.0731
+  748.5128  748.55804 748.9129  750.96423 752.5289  753.963   755.47296
+  756.39886 756.6282  757.7971  758.5293  758.58997 759.6957  760.4702
+  762.4522  762.98425 764.8522  765.14905 766.1621  766.8909  768.1134
+  768.6734  769.16754 769.2477  769.8717  770.3365  771.5044  771.9978
+  772.1216  772.1293  774.4618  775.01385 775.83887 776.6249  777.2675
+  778.30133 779.44385]], Indices: [[269196  20247 523033 471756 404805   2261 209829 191672 482735 119088
+  377575  12062 330396 572517 547519 205776 148739 236914 516318  50638
+   43435 402992 437331 460927 270122 465180 220584 248334 308476 331075
+  417465  82715 577959 561223 441286 272148 108503 232692  29984 248810
+  364322 396863 220858  14831 556765 314294  45090 341196 230166  32887
+  576052 155571 525155  72813 579307 185292 519688 534673 364636 451090
+  125405 207585  22589 355677 335450 272364 278353 528705 427649 125072
+  460160 173033 224222 206831 338304   7108 234757 326174  11760 459437
+  296224 445675 499768 233567  87875 313783 321887 547383 493864 367195
+  322844 530624 573391 452891 252216  82180 366611 291664 224664 255664]]
+2025-03-23 19:43:43,293 - shard_node - DEBUG - Performed search with 1 query vectors, k=100
+2025-03-23 19:43:43,293 - __main__ - DEBUG - Search results: distances shape=(1, 100), indices shape=(1, 100)
+2025-03-23 19:43:43,293 - __main__ - DEBUG - Distances: [[552.5787  553.4232  571.6914  572.98303 585.573   593.6045  594.8322
+  596.02747 598.80505 612.6244  622.0532  622.62067 624.9065  634.085
+  638.0795  642.4203  645.184   651.79065 656.2398  657.0089  658.0011
+  660.942   663.69946 664.6149  665.3942  667.43555 669.25824 680.85864
+  681.4298  685.7575  688.29663 691.137   691.6371  691.85925 696.7086
+  698.87787 702.85406 703.86    706.0446  708.1591  711.11365 711.7776
+  712.885   718.15656 722.6549  723.6399  725.828   729.0948  731.4262
+  732.01544 732.29297 733.933   736.3909  738.88104 739.9562  741.1216
+  741.96155 742.6798  743.4613  743.48456 745.0979  745.6666  747.0731
+  748.5128  748.55804 748.9129  750.96423 752.5289  753.963   755.47296
+  756.39886 756.6282  757.7971  758.5293  758.58997 759.6957  760.4702
+  762.4522  762.98425 764.8522  765.14905 766.1621  766.8909  768.1134
+  768.6734  769.16754 769.2477  769.8717  770.3365  771.5044  771.9978
+  772.1216  772.1293  774.4618  775.01385 775.83887 776.6249  777.2675
+  778.30133 779.44385]], Indices: [[269196  20247 523033 471756 404805   2261 209829 191672 482735 119088
+  377575  12062 330396 572517 547519 205776 148739 236914 516318  50638
+   43435 402992 437331 460927 270122 465180 220584 248334 308476 331075
+  417465  82715 577959 561223 441286 272148 108503 232692  29984 248810
+  364322 396863 220858  14831 556765 314294  45090 341196 230166  32887
+  576052 155571 525155  72813 579307 185292 519688 534673 364636 451090
+  125405 207585  22589 355677 335450 272364 278353 528705 427649 125072
+  460160 173033 224222 206831 338304   7108 234757 326174  11760 459437
+  296224 445675 499768 233567  87875 313783 321887 547383 493864 367195
+  322844 530624 573391 452891 252216  82180 366611 291664 224664 255664]]
+2025-03-23 19:43:43,293 - __main__ - DEBUG - Returning search results: 1 items
+2025-03-23 19:43:43,294 - werkzeug - INFO - 127.0.0.1 - - [23/Mar/2025 19:43:43] "POST /search HTTP/1.1" 200 -
+2025-03-23 19:43:43,315 - __main__ - DEBUG - Received search request with query_vector shape=(1, 512), k=100
+2025-03-23 19:43:43,315 - __main__ - DEBUG - Calling shard.search
+2025-03-23 19:43:43,315 - shard_node - DEBUG - Starting search with query_vectors shape=(1, 512), k=100
+2025-03-23 19:43:43,315 - shard_node - DEBUG - Index has 1717 total vectors
+2025-03-23 19:43:43,315 - shard_node - DEBUG - Searching with adjusted k=100
+2025-03-23 19:43:43,316 - shard_node - DEBUG - Search results: distances shape=(1, 100), indices shape=(1, 100)
+2025-03-23 19:43:43,317 - shard_node - DEBUG - Distances: [[174.938   177.3052  216.12683 221.31491 233.08542 261.7019  262.1899
+  262.27606 269.32043 292.8341  294.80725 298.24377 309.18375 317.48074
+  322.12903 334.96072 338.32123 348.18146 354.47015 376.12112 430.74503
+  433.3462  436.18066 512.3354  562.9888  573.7252  606.90735 610.5836
+  616.6947  618.6112  627.9529  628.02277 641.15857 641.8284  643.93646
+  647.47876 650.91003 658.866   662.1173  665.67365 667.3265  671.1395
+  673.91064 676.34827 676.8169  678.1864  687.83295 691.7131  699.83234
+  704.4606  708.4171  714.3092  715.69855 715.7739  717.8373  720.8828
+  721.0735  722.0407  722.6677  723.1541  724.32056 724.48236 724.83923
+  726.9494  729.96155 731.10016 731.4863  732.51117 735.5362  737.3281
+  737.6207  739.1134  742.74915 743.05    743.94977 745.763   750.34937
+  751.1903  752.86334 753.03    753.1315  753.78406 754.4392  754.50616
+  754.69946 755.4445  755.5142  755.77985 756.03546 756.0425  756.157
+  756.81226 757.2156  758.395   758.7086  759.02734 759.6759  759.9294
+  760.1729  760.8104 ]], Indices: [[577149 501243  54123 159311 484296 125211 201676 378453 320632  52462
+   31269 516316 122969  20059  38825 509656 491613 215245  25139  11760
+    1818 116589 377497 159977 222235 248810   7108 359781 445675 166664
+  162543 259382 237864 396863 155571 314294 369037 289741 112634 356261
+  134689 480842 514797  88250 519208 158945  80274 329447 375763 207306
+  528862 335450 534673 572517  86220 286994 485895 239857 293245 227399
+  543043 287545 460160  20247 481573 420230 211069 233567 334719 252216
+   41633 278353 129054 171050 118209 331075 481480 402992 288584 543300
+  526392 174371 416758 454978  17031 212895 450758 377575 506656 549738
+  559099 551350 158744 469652 272364 338532  87742 404922 267940 152870]]
+2025-03-23 19:43:43,317 - shard_node - DEBUG - Performed search with 1 query vectors, k=100
+2025-03-23 19:43:43,317 - __main__ - DEBUG - Search results: distances shape=(1, 100), indices shape=(1, 100)
+2025-03-23 19:43:43,317 - __main__ - DEBUG - Distances: [[174.938   177.3052  216.12683 221.31491 233.08542 261.7019  262.1899
+  262.27606 269.32043 292.8341  294.80725 298.24377 309.18375 317.48074
+  322.12903 334.96072 338.32123 348.18146 354.47015 376.12112 430.74503
+  433.3462  436.18066 512.3354  562.9888  573.7252  606.90735 610.5836
+  616.6947  618.6112  627.9529  628.02277 641.15857 641.8284  643.93646
+  647.47876 650.91003 658.866   662.1173  665.67365 667.3265  671.1395
+  673.91064 676.34827 676.8169  678.1864  687.83295 691.7131  699.83234
+  704.4606  708.4171  714.3092  715.69855 715.7739  717.8373  720.8828
+  721.0735  722.0407  722.6677  723.1541  724.32056 724.48236 724.83923
+  726.9494  729.96155 731.10016 731.4863  732.51117 735.5362  737.3281
+  737.6207  739.1134  742.74915 743.05    743.94977 745.763   750.34937
+  751.1903  752.86334 753.03    753.1315  753.78406 754.4392  754.50616
+  754.69946 755.4445  755.5142  755.77985 756.03546 756.0425  756.157
+  756.81226 757.2156  758.395   758.7086  759.02734 759.6759  759.9294
+  760.1729  760.8104 ]], Indices: [[577149 501243  54123 159311 484296 125211 201676 378453 320632  52462
+   31269 516316 122969  20059  38825 509656 491613 215245  25139  11760
+    1818 116589 377497 159977 222235 248810   7108 359781 445675 166664
+  162543 259382 237864 396863 155571 314294 369037 289741 112634 356261
+  134689 480842 514797  88250 519208 158945  80274 329447 375763 207306
+  528862 335450 534673 572517  86220 286994 485895 239857 293245 227399
+  543043 287545 460160  20247 481573 420230 211069 233567 334719 252216
+   41633 278353 129054 171050 118209 331075 481480 402992 288584 543300
+  526392 174371 416758 454978  17031 212895 450758 377575 506656 549738
+  559099 551350 158744 469652 272364 338532  87742 404922 267940 152870]]
+2025-03-23 19:43:43,317 - __main__ - DEBUG - Returning search results: 1 items
+2025-03-23 19:43:43,317 - werkzeug - INFO - 127.0.0.1 - - [23/Mar/2025 19:43:43] "POST /search HTTP/1.1" 200 -
+2025-03-23 19:49:57,926 - __main__ - DEBUG - Received search request with query_vector shape=(1, 512), k=5
+2025-03-23 19:49:57,926 - __main__ - DEBUG - Calling shard.search
+2025-03-23 19:49:57,926 - shard_node - DEBUG - Starting search with query_vectors shape=(1, 512), k=5
+2025-03-23 19:49:57,927 - shard_node - DEBUG - Index has 1717 total vectors
+2025-03-23 19:49:57,928 - shard_node - DEBUG - Searching with adjusted k=5
+2025-03-23 19:49:57,934 - shard_node - DEBUG - Search results: distances shape=(1, 5), indices shape=(1, 5)
+2025-03-23 19:49:57,936 - shard_node - DEBUG - Distances: [[  8.146597 159.98157  200.6996   219.9655   253.79266 ]], Indices: [[   139 221708 575970 326082 189310]]
+2025-03-23 19:49:57,936 - shard_node - DEBUG - Performed search with 1 query vectors, k=5
+2025-03-23 19:49:57,936 - __main__ - DEBUG - Search results: distances shape=(1, 5), indices shape=(1, 5)
+2025-03-23 19:49:57,936 - __main__ - DEBUG - Distances: [[  8.146597 159.98157  200.6996   219.9655   253.79266 ]], Indices: [[   139 221708 575970 326082 189310]]
+2025-03-23 19:49:57,936 - __main__ - DEBUG - Returning search results: 1 items
+2025-03-23 19:49:57,937 - werkzeug - INFO - 127.0.0.1 - - [23/Mar/2025 19:49:57] "POST /search HTTP/1.1" 200 -

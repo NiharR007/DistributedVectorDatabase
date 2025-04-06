@@ -4,6 +4,7 @@ import yaml
 import logging
 from typing import List, Tuple, Optional, Union
 import os
+import time
 
 class ShardNode:
     def __init__(self, config: Union[str, dict]):
@@ -54,23 +55,49 @@ class ShardNode:
             vectors: Vectors to add (n_vectors, dimension)
             ids: Optional vector IDs
         """
-        if vectors.ndim == 1:
-            vectors = vectors.reshape(1, -1)
+        try:
+            self.logger.info(f"Adding vectors: shape={vectors.shape}, dtype={vectors.dtype}")
             
-        if vectors.dtype != np.float32:
-            vectors = vectors.astype(np.float32)
+            if vectors.ndim == 1:
+                vectors = vectors.reshape(1, -1)
+                self.logger.debug("Reshaped single vector to 2D array")
+                
+            if vectors.dtype != np.float32:
+                self.logger.debug(f"Converting vectors from {vectors.dtype} to float32")
+                vectors = vectors.astype(np.float32)
+                
+            n_vectors = vectors.shape[0]
             
-        n_vectors = vectors.shape[0]
-        
-        if ids is None:
-            ids = np.arange(self.next_id, self.next_id + n_vectors)
-            self.next_id += n_vectors
+            # Check if dimensions match
+            if vectors.shape[1] != self.dimension:
+                self.logger.error(f"Vector dimension mismatch: expected {self.dimension}, got {vectors.shape[1]}")
+                raise ValueError(f"Vector dimension mismatch: expected {self.dimension}, got {vectors.shape[1]}")
             
-        logging.info(f"Adding {n_vectors} vectors with IDs: {ids}")
-        self.index.add_with_ids(vectors, ids)
+            # Handle IDs
+            if ids is None:
+                self.logger.debug(f"No IDs provided, generating sequential IDs starting from {self.next_id}")
+                ids = np.arange(self.next_id, self.next_id + n_vectors, dtype=np.int64)
+                self.next_id += n_vectors
+            elif ids.dtype != np.int64:
+                self.logger.debug(f"Converting IDs from {ids.dtype} to int64")
+                ids = ids.astype(np.int64)
+                
+            self.logger.info(f"Adding {n_vectors} vectors with IDs range: {ids[0]} to {ids[-1]}")
             
-        self.logger.info("Added %d vectors to index", len(vectors))
-        
+            # Add vectors to the index
+            self.index.add_with_ids(vectors, ids)
+            
+            # Verify vectors were added
+            ntotal_after = self.index.ntotal
+            self.logger.info(f"Index now contains {ntotal_after} total vectors")
+            
+            return ntotal_after
+        except Exception as e:
+            self.logger.error(f"Error adding vectors: {str(e)}")
+            import traceback
+            self.logger.error(f"Traceback: {traceback.format_exc()}")
+            raise
+            
     def search(self, query_vectors: np.ndarray, k: int) -> Tuple[np.ndarray, np.ndarray]:
         """Search for nearest neighbors.
         
@@ -119,9 +146,40 @@ class ShardNode:
         
     def get_stats(self) -> dict:
         """Get index statistics."""
+        self.logger.info("Getting shard statistics")
+        
+        # Get memory usage of the index if possible
+        index_memory_mb = 0
+        try:
+            # Estimate memory usage: each vector is dimension * 4 bytes (float32)
+            # plus overhead for the IDs (8 bytes per ID)
+            if hasattr(self.index, 'ntotal') and hasattr(self.index, 'd'):
+                vector_memory = self.index.ntotal * self.index.d * 4  # float32 = 4 bytes
+                id_memory = self.index.ntotal * 8  # int64 = 8 bytes
+                index_memory_mb = (vector_memory + id_memory) / (1024 * 1024)  # Convert to MB
+        except Exception as e:
+            self.logger.warning(f"Failed to estimate memory usage: {str(e)}")
+        
+        # Get a sample of vector IDs if available
+        sample_ids = []
+        try:
+            if hasattr(self.index, 'id_map') and self.index.ntotal > 0:
+                # Get up to 5 IDs as a sample
+                sample_size = min(5, self.index.ntotal)
+                sample_query = np.zeros((1, self.dimension), dtype=np.float32)
+                _, sample_indices = self.index.search(sample_query, sample_size)
+                sample_ids = sample_indices[0].tolist()
+        except Exception as e:
+            self.logger.warning(f"Failed to get sample IDs: {str(e)}")
+            
         return {
-            'total_vectors': self.index.ntotal,
-            'dimension': self.index.d,
+            'total_vectors': self.index.ntotal if hasattr(self.index, 'ntotal') else 0,
+            'dimension': self.index.d if hasattr(self.index, 'd') else self.dimension,
             'index_type': 'FlatL2',
-            'metric': 'L2'
+            'metric': 'L2',
+            'memory_usage_mb': round(index_memory_mb, 2),
+            'next_id': self.next_id,
+            'sample_ids': sample_ids,
+            'storage_path': self.storage_path,
+            'timestamp': time.time()
         }

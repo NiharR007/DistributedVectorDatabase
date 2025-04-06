@@ -22,26 +22,55 @@ def health_check():
     """Health check endpoint."""
     return jsonify({"status": "healthy"})
 
-@app.route('/add', methods=['POST'])
+@app.route('/add_vectors', methods=['POST'])
 def add_vectors():
     """Add vectors to the distributed database."""
-    data = request.json
-    
-    if 'vectors' not in data:
-        return jsonify({"error": "No vectors provided"}), 400
-    
-    vectors = np.array(data['vectors'], dtype=np.float32)
-    
-    if 'ids' in data:
-        ids = np.array(data['ids'], dtype=np.int64)
-    else:
-        ids = None
-    
     try:
-        coordinator.distribute_vectors(vectors, ids)
-        return jsonify({"status": "success", "added": len(vectors)})
+        data = request.json
+        
+        if 'vectors' not in data:
+            logger.error("No vectors provided")
+            return jsonify({"error": "No vectors provided"}), 400
+        
+        vectors = np.array(data['vectors'], dtype=np.float32)
+        ids = np.array(data['ids']) if 'ids' in data and data['ids'] is not None else None
+        
+        logger.info(f"Received request to add {len(vectors)} vectors")
+        logger.debug(f"Vectors shape: {vectors.shape}")
+        if ids is not None:
+            logger.debug(f"IDs shape: {ids.shape}")
+            logger.debug(f"Sample IDs: {ids[:5]}...")
+        
+        try:
+            logger.debug("Calling coordinator.distribute_vectors")
+            coordinator.distribute_vectors(vectors, ids)
+            
+            # Get system stats to verify vectors were added
+            stats = coordinator.get_system_stats()
+            logger.info(f"System stats after adding vectors: {stats}")
+            
+            # Check if vectors were actually added
+            total_vectors = 0
+            for node_key, node_stats in stats['nodes'].items():
+                if 'vector_count' in node_stats:
+                    total_vectors += node_stats['vector_count']
+            
+            logger.info(f"Total vectors in system: {total_vectors}")
+            
+            return jsonify({
+                "status": "success",
+                "message": f"Added {len(vectors)} vectors",
+                "total_vectors": total_vectors
+            })
+        except Exception as e:
+            logger.error(f"Error distributing vectors: {str(e)}")
+            import traceback
+            logger.error(f"Traceback: {traceback.format_exc()}")
+            return jsonify({"error": str(e)}), 500
     except Exception as e:
-        logger.error("Error adding vectors: %s", str(e))
+        logger.error(f"Error processing add_vectors request: {str(e)}")
+        import traceback
+        logger.error(f"Traceback: {traceback.format_exc()}")
         return jsonify({"error": str(e)}), 500
 
 @app.route('/search', methods=['POST'])
@@ -115,10 +144,13 @@ def search():
 def get_stats():
     """Get system statistics."""
     try:
+        logger.info("Getting system statistics")
         stats = coordinator.get_system_stats()
         return jsonify(stats)
     except Exception as e:
-        logger.error("Error getting stats: %s", str(e))
+        logger.error(f"Error getting system statistics: {str(e)}")
+        import traceback
+        logger.error(f"Traceback: {traceback.format_exc()}")
         return jsonify({"error": str(e)}), 500
 
 def setup_logging(log_level='INFO'):

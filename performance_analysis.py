@@ -183,23 +183,18 @@ def benchmark_latency_vs_vectors(embeddings, coordinator_url, num_queries=10, k=
     
     return stats
 
-def analyze_shard_distribution(coordinator_config, shard_ports):
+def analyze_shard_distribution(shard_stats):
     """Analyze the distribution of vectors across shards."""
-    # Get stats from each shard
-    shard_stats = []
-    for port in shard_ports:
-        stats = get_shard_stats('localhost', port)
-        if stats:
-            stats['port'] = port
-            shard_stats.append(stats)
+    print("Analyzing shard distribution...")
     
-    if not shard_stats:
-        print("No shard statistics available")
-        return
-    
-    # Extract vector counts
     ports = [stats['port'] for stats in shard_stats]
     vector_counts = [stats['total_vectors'] for stats in shard_stats]
+    
+    # Check if there are any vectors in the system
+    total_vectors = sum(vector_counts)
+    if total_vectors == 0:
+        print("No vectors found in any shard. Please load vectors into the system first.")
+        return
     
     # Plot distribution
     plt.figure(figsize=(10, 6))
@@ -211,36 +206,35 @@ def analyze_shard_distribution(coordinator_config, shard_ports):
     plt.grid(True, axis='y')
     
     # Add text labels on top of bars
-    for i, count in enumerate(vector_counts):
-        plt.text(i, count + max(vector_counts) * 0.01, str(count), 
-                 ha='center', va='bottom', fontweight='bold')
+    if max(vector_counts) > 0:  # Only add labels if there are vectors
+        for i, count in enumerate(vector_counts):
+            plt.text(i, count + max(vector_counts) * 0.01, str(count), 
+                    ha='center', va='bottom', fontweight='bold')
     
     plt.savefig('shard_distribution.png', dpi=300, bbox_inches='tight')
     plt.close()
     
     # Calculate distribution metrics
-    total_vectors = sum(vector_counts)
-    distribution_percentages = [count / total_vectors * 100 for count in vector_counts]
+    distribution_percentages = [count / total_vectors * 100 for count in vector_counts] if total_vectors > 0 else [0] * len(vector_counts)
     
     print("Vector Distribution Across Shards:")
     for i, (port, count, percentage) in enumerate(zip(ports, vector_counts, distribution_percentages)):
         print(f"  Shard {i+1} (Port {port}): {count} vectors ({percentage:.2f}%)")
     
     # Calculate imbalance metrics
-    if len(vector_counts) > 1:
+    if len(vector_counts) > 1 and total_vectors > 0:
         min_count = min(vector_counts)
         max_count = max(vector_counts)
-        mean_count = np.mean(vector_counts)
-        std_count = np.std(vector_counts)
-        cv = std_count / mean_count if mean_count > 0 else 0
+        avg_count = total_vectors / len(vector_counts)
+        imbalance = (max_count - min_count) / avg_count if avg_count > 0 else 0
         
-        print(f"\nDistribution Metrics:")
-        print(f"  Min vectors: {min_count}")
-        print(f"  Max vectors: {max_count}")
-        print(f"  Mean vectors: {mean_count:.2f}")
-        print(f"  Standard deviation: {std_count:.2f}")
-        print(f"  Coefficient of variation: {cv:.4f}")
-        print(f"  Max/Min ratio: {max_count / min_count if min_count > 0 else 'N/A'}")
+        print(f"\nImbalance Metrics:")
+        print(f"  Min vectors per shard: {min_count}")
+        print(f"  Max vectors per shard: {max_count}")
+        print(f"  Avg vectors per shard: {avg_count:.2f}")
+        print(f"  Imbalance factor: {imbalance:.2f}")
+    else:
+        print("\nNot enough data to calculate imbalance metrics.")
 
 def main(args):
     # Load embeddings
@@ -258,10 +252,17 @@ def main(args):
     if args.analyze_distribution:
         # Analyze shard distribution
         print("Analyzing shard distribution...")
-        analyze_shard_distribution(
-            args.coordinator_config, 
-            args.shard_ports
-        )
+        shard_stats = []
+        for port in args.shard_ports:
+            stats = get_shard_stats('localhost', port)
+            if stats:
+                stats['port'] = port
+                shard_stats.append(stats)
+        
+        if not shard_stats:
+            print("No shard statistics available")
+        else:
+            analyze_shard_distribution(shard_stats)
     
     if args.benchmark_k:
         # Benchmark latency vs k

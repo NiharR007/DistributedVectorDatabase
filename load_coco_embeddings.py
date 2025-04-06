@@ -38,30 +38,81 @@ def reduce_dimensions(embeddings, target_dim=512, method='pca'):
 def add_vectors_to_db(vectors, ids, coordinator_url, batch_size=1000):
     """Add vectors to the distributed database in batches."""
     total_vectors = len(vectors)
+    print(f"Adding {total_vectors} vectors to the database in batches of {batch_size}")
+    print(f"Vector shape: {vectors.shape}, dtype: {vectors.dtype}")
+    print(f"IDs shape: {ids.shape}, dtype: {ids.dtype}")
+    print(f"Sample vector: {vectors[0][:5]}...")
+    print(f"Sample IDs: {ids[:5]}...")
+    
+    # Verify coordinator is up
+    try:
+        health_response = requests.get(f"{coordinator_url}/health")
+        print(f"Coordinator health check: {health_response.status_code} - {health_response.text}")
+    except Exception as e:
+        print(f"Coordinator health check failed: {str(e)}")
+        return False
+    
     batches = (total_vectors + batch_size - 1) // batch_size
+    successful_batches = 0
     
     for i in tqdm(range(batches), desc="Adding vector batches"):
         start_idx = i * batch_size
         end_idx = min((i + 1) * batch_size, total_vectors)
         
-        batch_vectors = vectors[start_idx:end_idx].tolist()
-        batch_ids = ids[start_idx:end_idx].tolist()
+        batch_vectors = vectors[start_idx:end_idx]
+        batch_ids = ids[start_idx:end_idx]
+        
+        print(f"Batch {i+1}/{batches}: Adding {len(batch_vectors)} vectors (IDs {batch_ids[0]}...{batch_ids[-1]})")
+        print(f"Batch vectors shape: {batch_vectors.shape}, dtype: {batch_vectors.dtype}")
         
         payload = {
-            "vectors": batch_vectors,
-            "ids": batch_ids
+            "vectors": batch_vectors.tolist(),
+            "ids": batch_ids.tolist()
         }
         
-        response = requests.post(
-            f"{coordinator_url}/add_vectors",
-            json=payload
-        )
+        try:
+            print(f"Sending request to {coordinator_url}/add_vectors")
+            print(f"Payload size: {len(str(payload))} characters")
+            
+            start_time = time.time()
+            response = requests.post(
+                f"{coordinator_url}/add_vectors",
+                json=payload,
+                timeout=60  # Add timeout to prevent hanging
+            )
+            elapsed_time = time.time() - start_time
+            
+            print(f"Request took {elapsed_time:.2f} seconds")
+            print(f"Response status code: {response.status_code}")
+            
+            if response.status_code != 200:
+                print(f"Error adding batch {i+1}: {response.text}")
+                continue  # Try next batch instead of failing completely
+            
+            result = response.json()
+            print(f"Response: {result}")
+            successful_batches += 1
+            
+            # Verify vectors were added by checking system stats
+            try:
+                stats_response = requests.get(f"{coordinator_url}/stats")
+                if stats_response.status_code == 200:
+                    stats = stats_response.json()
+                    print(f"System stats after batch {i+1}: {stats}")
+            except Exception as e:
+                print(f"Failed to get system stats: {str(e)}")
+                
+        except Exception as e:
+            print(f"Exception adding batch {i+1}: {str(e)}")
+            import traceback
+            print(f"Traceback: {traceback.format_exc()}")
+            # Continue with next batch instead of failing completely
         
-        if response.status_code != 200:
-            print(f"Error adding batch {i}: {response.text}")
-            return False
-        
-    return True
+        # Add a small delay between batches to avoid overwhelming the system
+        time.sleep(1)
+    
+    print(f"Successfully added {successful_batches}/{batches} batches ({successful_batches*batch_size} vectors) to the database")
+    return successful_batches > 0
 
 def search_similar_images(query_vector, k, coordinator_url):
     """Search for similar images."""
@@ -80,7 +131,41 @@ def search_similar_images(query_vector, k, coordinator_url):
         return None, None
     
     result = response.json()
-    return result["distances"], result["indices"]
+    print(f"Raw search response: {result}")
+    
+    # Handle different response formats
+    if "distances" in result and "indices" in result:
+        distances = result["distances"]
+        indices = result["indices"]
+        
+        # Flatten the results if they're nested lists
+        flat_distances = []
+        flat_indices = []
+        
+        if isinstance(distances, list):
+            for shard_distances in distances:
+                if isinstance(shard_distances, list):
+                    flat_distances.extend(shard_distances)
+                else:
+                    flat_distances.append(shard_distances)
+                    
+        if isinstance(indices, list):
+            for shard_indices in indices:
+                if isinstance(shard_indices, list):
+                    flat_indices.extend(shard_indices)
+                else:
+                    flat_indices.append(shard_indices)
+        
+        # Sort results by distance
+        if flat_distances and flat_indices:
+            sorted_results = sorted(zip(flat_distances, flat_indices))
+            sorted_distances, sorted_indices = zip(*sorted_results)
+            return sorted_distances[:k], sorted_indices[:k]
+        
+        return flat_distances, flat_indices
+    else:
+        # If the response has a different format, try to extract the relevant information
+        return result.get("distances", []), result.get("indices", [])
 
 def benchmark_search(embeddings, coordinator_url, num_queries=10, k_values=[1, 5, 10, 50, 100]):
     """Benchmark search performance."""
@@ -164,10 +249,20 @@ def main(args):
             query_vector, args.k, coordinator_url
         )
         
-        if distances is not None:
+        if distances is not None and indices is not None:
             print(f"Found {len(indices)} similar images:")
-            for i, (dist, idx) in enumerate(zip(distances, indices)):
-                print(f"  {i+1}. Image ID: {idx}, Distance: {dist:.4f}")
+            
+            if len(indices) > 0:
+                for i, (dist, idx) in enumerate(zip(distances, indices)):
+                    # Format the distance value
+                    if isinstance(dist, (int, float)):
+                        dist_str = f"{dist:.4f}"
+                    else:
+                        dist_str = str(dist)
+                        
+                    print(f"  {i+1}. Image ID: {idx}, Distance: {dist_str}")
+            else:
+                print("  No similar images found.")
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Load COCO embeddings and interact with the vector database")

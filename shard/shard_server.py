@@ -22,26 +22,49 @@ def health_check():
     """Health check endpoint."""
     return jsonify({"status": "healthy"})
 
-@app.route('/add', methods=['POST'])
+@app.route('/add_vectors', methods=['POST'])
 def add_vectors():
     """Add vectors to the shard."""
-    data = request.json
-    
-    if 'vectors' not in data:
-        return jsonify({"error": "No vectors provided"}), 400
-    
-    vectors = np.array(data['vectors'], dtype=np.float32)
-    
-    if 'ids' in data:
-        ids = np.array(data['ids'], dtype=np.int64)
-    else:
-        ids = None
-    
     try:
-        shard.add_vectors(vectors, ids)
-        return jsonify({"status": "success", "added": len(vectors)})
+        data = request.json
+        
+        if 'vectors' not in data:
+            logger.error("No vectors provided")
+            return jsonify({"error": "No vectors provided"}), 400
+        
+        vectors = np.array(data['vectors'], dtype=np.float32)
+        logger.info(f"Received request to add {len(vectors)} vectors with shape {vectors.shape}")
+        
+        if 'ids' in data and data['ids'] is not None:
+            ids = np.array(data['ids'], dtype=np.int64)
+            logger.debug(f"IDs provided with shape {ids.shape}")
+            logger.debug(f"Sample IDs: {ids[:5]}...")
+        else:
+            ids = None
+            logger.debug("No IDs provided, will generate automatically")
+        
+        try:
+            logger.debug("Calling shard.add_vectors")
+            shard.add_vectors(vectors, ids)
+            
+            # Get stats to verify vectors were added
+            stats = shard.get_stats()
+            logger.info(f"Shard stats after adding vectors: {stats}")
+            
+            return jsonify({
+                "status": "success", 
+                "added": len(vectors),
+                "total_vectors": stats.get("total_vectors", 0)
+            })
+        except Exception as e:
+            logger.error(f"Error in shard.add_vectors: {str(e)}")
+            import traceback
+            logger.error(f"Traceback: {traceback.format_exc()}")
+            return jsonify({"error": str(e)}), 500
     except Exception as e:
-        logger.error("Error adding vectors: %s", str(e))
+        logger.error(f"Error processing add_vectors request: {str(e)}")
+        import traceback
+        logger.error(f"Traceback: {traceback.format_exc()}")
         return jsonify({"error": str(e)}), 500
 
 @app.route('/search', methods=['POST'])

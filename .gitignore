@@ -1,3 +1,23 @@
+# Data directories
 data/
 logs/
 visualizations/
+
+# Python virtual environment
+venv/
+.env/
+
+# Python cache files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Distribution / packaging
+dist/
+build/
+*.egg-info/
+
+# Local development settings
+.DS_Store
+.idea/
+.vscode/

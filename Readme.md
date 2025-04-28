@@ -1,5 +1,3 @@
-Here's a professional README.md for your distributed vector database project:
-
 ```markdown
 # Distributed Vector Database for High-Dimensional Image Embeddings
 
